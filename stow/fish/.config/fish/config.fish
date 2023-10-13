@@ -209,12 +209,12 @@ end
 # alias listdir="ls -d */ > list"
 
 #pacman
-alias sps='sudo pacman -S'
-alias spr='sudo pacman -R'
-alias sprs='sudo pacman -Rs'
-alias sprdd='sudo pacman -Rdd'
-alias spqo='sudo pacman -Qo'
-alias spsii='sudo pacman -Sii'
+alias pms='sudo pacman -S'
+alias pmr='sudo pacman -R'
+alias pmrs='sudo pacman -Rs'
+alias pmrdd='sudo pacman -Rdd'
+alias pmqo='sudo pacman -Qo'
+alias pmsii='sudo pacman -Sii'
 
 # show the list of packages that need this package - depends mpv as example
 function function_depends
@@ -230,7 +230,6 @@ if type -q exa
     alias xll="exa -lag --icons --color=always --group-directories-first --octal-permissions"
 end
 
-#fix obvious typo's
 alias udpate="sudo pacman -Syyu"
 alias upqll="paru -Syu --noconfirm"
 alias upal="paru -Syu --noconfirm"
@@ -386,11 +385,11 @@ alias isoo="cat /etc/dev-rel"
 alias cleanup="sudo pacman -Rns (pacman -Qtdq)"
 
 # This will generate a list of explicitly installed packages
-alias list="sudo pacman -Qqe"
+alias pmls="sudo pacman -Qqe"
 #This will generate a list of explicitly installed packages without dependencies
-alias listt="sudo pacman -Qqet"
+alias pmlswd="sudo pacman -Qqet"
 # list of AUR packages
-alias listaur="sudo pacman -Qqem"
+alias pmlsaur="sudo pacman -Qqem"
 # add > list at the end to write to a file
 
 # install packages from list
@@ -500,15 +499,15 @@ alias xdw="ls /usr/share/wayland-sessions"
 #arcolinux applications
 #att is a symbolic link now
 #alias att="archlinux-tweak-tool"
-alias adt="arcolinux-desktop-trasher"
-alias abl="arcolinux-betterlockscreen"
-alias agm="arcolinux-get-mirrors"
-alias amr="arcolinux-mirrorlist-rank-info"
-alias aom="arcolinux-osbeck-as-mirror"
-alias ars="arcolinux-reflector-simple"
-alias atm="arcolinux-tellme"
-alias avs="arcolinux-vbox-share"
-alias awa="arcolinux-welcome-app"
+# alias adt="arcolinux-desktop-trasher"
+# alias abl="arcolinux-betterlockscreen"
+# alias agm="arcolinux-get-mirrors"
+# alias amr="arcolinux-mirrorlist-rank-info"
+# alias aom="arcolinux-osbeck-as-mirror"
+# alias ars="arcolinux-reflector-simple"
+# alias atm="arcolinux-tellme"
+# alias avs="arcolinux-vbox-share"
+# alias awa="arcolinux-welcome-app"
 
 #git
 alias rmgitcache="rm -r ~/.cache/git"
@@ -541,7 +540,8 @@ alias n "nvim"
 alias v "nvim"
 
 #Tmux
-abbr tx "tmux"
+alias tx "tmux"
+abbr txl "tmux ls"
 abbr txk "tmux kill-server"
 abbr txks "tmux kill-session -t"
 abbr txas "tmux attach-session -t"
@@ -564,16 +564,18 @@ abbr stow "stow --target $HOME"
 #Git
 abbr g  "git"
 abbr ga "git add"
+abbr ga. "git add ."
 abbr gs "git status"
 abbr gc "git commit -m"
 abbr gd "git diff"
 abbr gps "git push"
 abbr gpl "git pull"
-# abbr gcreds "ssh-add --apple-use-keychain ~/.ssh/id_ed25519"
-abbr gempty "git commit --allow-empty -m 'argo sucks'"
+abbr gem "git commit --allow-empty -m 'argo sucks'"
 abbr gch "git checkout"
 abbr glog "git log --graph --pretty=\"%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen%cr %C(bold blue)%an%Creset\""
 abbr gundo "git push -f origin HEAD^:master"
+abbr grh "git reset --hard"
+abbr grmch "rm -r ~/.cache/git"
 
 #Dots
 abbr z. "nvim ~/.dots/stow/zsh/.zshrc"
@@ -586,20 +588,22 @@ abbr scripts "$EDITOR ~/.dots/stow/scripts/.config/scripts/"
 
 #Processes
 abbr nst "npm start"
-abbr nserve "npm run serve"
-abbr nserver "npm run server"
-abbr nstart "npm run start"
+abbr nsv "npm run serve"
+abbr nsvr "npm run server"
+abbr nst "npm run start"
 abbr vs "code-insiders ./"
 abbr dw "dotnet watch run"
-abbr zoostart "~/kafka34/bin/zookeeper-server-start.sh ~/kafka34/config/zookeeper.properties"
-abbr kafkastart "~/kafka34/bin/kafka-server-start.sh ~/kafka34/config/server.properties"
+abbr dr "dotnet run"
+abbr db "dotnet build"
+# abbr zoostart "~/kafka34/bin/zookeeper-server-start.sh ~/kafka34/config/zookeeper.properties"
+# abbr kafkastart "~/kafka34/bin/kafka-server-start.sh ~/kafka34/config/server.properties"
 
 
 ###############
 # DMG ALIASES #
 ###############
 
-abbr rocks "rm -rf bin/Debug/net7.0/rocksdb/ && rm -rf rocksdb"
+abbr rocks "rm -rf bin/Debug/net6.0/rocksdb/ && rm -rf rocksdb"
 abbr dmg "cd ~/code/dmg"
 abbr leapi "cd ~/code/dmg/legacyprovideronboarding/api/dmg.legacy-provider-onboarding-app.api"
 abbr lestate "cd ~/code/dmg/legacyprovideronboarding/state/dmg.legacy-provider-onboarding-app.state"
@@ -622,6 +626,9 @@ abbr fastate "cd ~/code/dmg/fastaccept/state/dmg.fast-accept-app.state"
 abbr mystate "cd ~/code/dmg/myjobs/state/dmg.my-jobs-app.state"
 abbr myapi "cd ~/code/dmg/myjobs/api/dmg.my-jobs-app.api"
 abbr diapi "cd ~/code/dmg/dispatcherinvoiceronboarding/api/dmg.dispatcher-invoicer-onboarding-app.api"
+
+
+abbr dmgvpn "openvpn3 session-start --config ~/.private-dots/vpn/client.ovpn"
 
 #########################
 # PERSONAL PROJ ALIASES #
