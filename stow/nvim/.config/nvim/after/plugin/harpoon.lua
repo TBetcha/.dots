@@ -26,12 +26,13 @@ vim.keymap.set("n", "<leader>t2", function() tmux.gotoTerminal(2) end)
 vim.keymap.set("n", "<leader>t0", function() term.gotoTerminal(1) end)
 
 
---
--- vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
--- vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
--- vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
--- vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
--- vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
+
+vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+vim.cmd('highlight! HarpoonActive guibg=NONE guifg=#eba0ac')
+vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
+vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
+vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
+
 
 harpoon.setup({
     -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
@@ -54,6 +55,6 @@ harpoon.setup({
 
     -- enable tabline with harpoon marks
     tabline = true,
-    tabline_prefix = "=> ",
+    tabline_prefix = " =>> ",
     tabline_suffix = " |",
 })

@@ -17,6 +17,10 @@
 
 #set VIRTUAL_ENV_DISABLE_PROMPT "1"
 
+########################
+### GENERAL SETTINGS ###
+########################
+
 if not status --is-interactive
   exit
 end
@@ -44,7 +48,7 @@ function reload
 end
 
 # VIM Stuff
-export DISABLE_AUTO_TITLE true
+# export DISABLE_AUTO_TITLE true
 fish_vi_key_bindings
 # Emulates vim's cursor shape behavior
 # Set the normal and visual mode cursors to a block
@@ -61,6 +65,7 @@ set fish_cursor_visual block
 set -e fish_user_paths
 set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/Applications $fish_user_paths
 fish_add_path {$HOME}/usr/share/dotnet
+fish_add_path {$HOME}/Applications
 
 # sets tools
 set -x EDITOR nvim
@@ -128,7 +133,10 @@ end
 
 
 
-### FUNCTIONS ###
+#####################
+### SYS FUNCTIONS ###
+#####################
+
 # Fish command history
 function history
     builtin history --show-time='%F %T ' | sort
@@ -198,29 +206,47 @@ function cd
     builtin cd $argv; and lsd -al .
 end
 
-### ALIASES ###
+# show the list of packages that need this package - depends mpv as example
+function function_depends
+    set search $argv[1]
+    sudo pacman -Sii $search | grep "Required" | sed -e "s/Required By     : //g" | sed -e "s/  /\n/g"
+end
 
-#list
-# alias ls="ls --color=auto"
-# alias la="ls -a"
-# alias ll="ls -alFh"
-# alias l="ls"
-# alias l.="ls -A | egrep '^\.'"
-# alias listdir="ls -d */ > list"
+
+####################
+### ARCH ALIASES ###
+####################
+
 
 #pacman
+alias pacman="sudo pacman --color auto"
 alias pms='sudo pacman -S'
 alias pmr='sudo pacman -R'
 alias pmrs='sudo pacman -Rs'
 alias pmrdd='sudo pacman -Rdd'
 alias pmqo='sudo pacman -Qo'
 alias pmsii='sudo pacman -Sii'
+alias pmss="sudo pacman -Ss --color auto"
+alias pmsyyu="sudo pacman -Syyu"
+alias pmsyu="sudo pacman -Syu"
+# This will generate a list of explicitly installed packages
+alias pmls="sudo pacman -Qqe"
+#This will generate a list of explicitly installed packages without dependencies
+alias pmlswd="sudo pacman -Qqet"
+# list of AUR packages
+alias pmlsaur="sudo pacman -Qqem"
+# add > list at the end to write to a file
+# install packages from list
+# pacman -S --needed - < my-list-of-packages.txt
+# paru as aur helper - updates everything
+alias pksyua="paru -Syu --noconfirm"
+alias upall="paru -Syu --noconfirm"
+alias upa="paru -Syu --noconfirm"
 
-# show the list of packages that need this package - depends mpv as example
-function function_depends
-    set search $argv[1]
-    sudo pacman -Sii $search | grep "Required" | sed -e "s/Required By     : //g" | sed -e "s/  /\n/g"
-end
+#skip integrity check
+alias paruskip="paru -S --mflags --skipinteg"
+alias yayskip="yay -S --mflags --skipinteg"
+alias trizenskip="trizen -S --skipinteg"
 
 alias depends='function_depends'
 
@@ -275,16 +301,6 @@ alias userlist="cut -d: -f1 /etc/passwd | sort"
 alias merge="xrdb -merge ~/.Xresources"
 
 # Aliases for software managment
-# pacman
-alias pacman="sudo pacman --color auto"
-alias update="sudo pacman -Syyu"
-alias upd="sudo pacman -Syyu"
-
-# paru as aur helper - updates everything
-alias pksyua="paru -Syu --noconfirm"
-alias upall="paru -Syu --noconfirm"
-alias upa="paru -Syu --noconfirm"
-
 #ps
 alias psa="ps auxf"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
@@ -335,10 +351,6 @@ alias hw="hwinfo --short"
 #audio check pulseaudio or pipewire
 alias audio="pactl info | grep 'Server Name'"
 
-#skip integrity check
-alias paruskip="paru -S --mflags --skipinteg"
-alias yayskip="yay -S --mflags --skipinteg"
-alias trizenskip="trizen -S --skipinteg"
 
 #check vulnerabilities microcode
 alias microcode="grep . /sys/devices/system/cpu/vulnerabilities/*"
@@ -384,16 +396,6 @@ alias isoo="cat /etc/dev-rel"
 #Cleanup orphaned packages
 alias cleanup="sudo pacman -Rns (pacman -Qtdq)"
 
-# This will generate a list of explicitly installed packages
-alias pmls="sudo pacman -Qqe"
-#This will generate a list of explicitly installed packages without dependencies
-alias pmlswd="sudo pacman -Qqet"
-# list of AUR packages
-alias pmlsaur="sudo pacman -Qqem"
-# add > list at the end to write to a file
-
-# install packages from list
-# pacman -S --needed - < my-list-of-packages.txt
 
 #clear
 alias clean="clear; seq 1 (tput cols) | sort -R | sparklines | lolcat"
@@ -405,26 +407,26 @@ alias rg="rg --sort path"
 alias jctl="journalctl -p 3 -xb"
 
 #know what you do in these files
-alias nlxdm="sudo $EDITOR /etc/lxdm/lxdm.conf"
-alias nlightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
-alias npacman="sudo $EDITOR /etc/pacman.conf"
-alias ngrub="sudo $EDITOR /etc/default/grub"
-alias nconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
-alias nmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
-alias nmirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
-alias narcomirrorlist="sudo $EDITOR /etc/pacman.d/arcolinux-mirrorlist"
-alias nsddm="sudo $EDITOR /etc/sddm.conf"
-alias nsddmk="sudo $EDITOR /etc/sddm.conf.d/kde_settings.conf"
-alias nfstab="sudo $EDITOR /etc/fstab"
-alias nnsswitch="sudo $EDITOR /etc/nsswitch.conf"
-alias nsamba="sudo $EDITOR /etc/samba/smb.conf"
-alias ngnupgconf="sudo $EDITOR /etc/pacman.d/gnupg/gpg.conf"
-alias nhosts="sudo $EDITOR /etc/hosts"
-alias nhostname="sudo $EDITOR /etc/hostname"
-alias nresolv="sudo $EDITOR /etc/resolv.conf"
-alias nneofetch="$EDITOR ~/.config/neofetch/config.conf"
-alias nplymouth="sudo $EDITOR /etc/plymouth/plymouthd.conf"
-alias nvconsole="sudo $EDITOR /etc/vconsole.conf"
+alias elxdm="sudo $EDITOR /etc/lxdm/lxdm.conf"
+alias elightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
+alias epacman="sudo $EDITOR /etc/pacman.conf"
+alias egrub="sudo $EDITOR /etc/default/grub"
+alias econfgrub="sudo $EDITOR /boot/grub/grub.cfg"
+alias emkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
+alias emirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
+alias earcomirrorlist="sudo $EDITOR /etc/pacman.d/arcolinux-mirrorlist"
+alias esddm="sudo $EDITOR /etc/sddm.conf"
+alias esddmk="sudo $EDITOR /etc/sddm.conf.d/kde_settings.conf"
+alias efstab="sudo $EDITOR /etc/fstab"
+alias ensswitch="sudo $EDITOR /etc/nsswitch.conf"
+alias esamba="sudo $EDITOR /etc/samba/smb.conf"
+alias egnupgconf="sudo $EDITOR /etc/pacman.d/gnupg/gpg.conf"
+alias ehosts="sudo $EDITOR /etc/hosts"
+alias ehostname="sudo $EDITOR /etc/hostname"
+alias eresolv="sudo $EDITOR /etc/resolv.conf"
+alias eneofetch="$EDITOR ~/.config/neofetch/config.conf"
+alias eplymouth="sudo $EDITOR /etc/plymouth/plymouthd.conf"
+alias evconsole="sudo $EDITOR /etc/vconsole.conf"
 
 #reading logs with bat
 alias lcalamares="bat /var/log/Calamares.log"
@@ -510,132 +512,20 @@ alias xdw="ls /usr/share/wayland-sessions"
 # alias awa="arcolinux-welcome-app"
 
 #git
-alias rmgitcache="rm -r ~/.cache/git"
-alias grh="git reset --hard"
+# alias rmgitcache="rm -r ~/.cache/git"
+# alias grh="git reset --hard"
 
 #pamac
 alias pamac-unlock="sudo rm /var/tmp/pamac/dbs/db.lock"
 
 
-#########################
-# BASIC ABBREVIATIONS #
-#########################
 
-abbr .. "cd ../"
-abbr .2 "cd ../.."
-abbr .3 "cd ../../.."
-abbr .4 "cd ../../../.."
-abbr .5 "cd ../../../../.."
+###########
+# ALIASES #
+###########
 
-
-
-#########################
-# OPERATIONAL ALIASES #
-#########################
-
-#Editor
-alias vim "nvim"
-alias vi "nvim"
-alias n "nvim"
-alias v "nvim"
-
-#Tmux
-alias tx "tmux"
-abbr txl "tmux ls"
-abbr txk "tmux kill-server"
-abbr txks "tmux kill-session -t"
-abbr txas "tmux attach-session -t"
-abbr txds "tmux detach -s"
-abbr txns "tmux new -s"
-abbr txnds "tmux new -d -s" 
-
-#Programs
-abbr c "clear"
-abbr ld "lazydocker"
-abbr lg "lazygit"
-abbr cat "ccat"
-abbr l "lsd -al ."
-abbr ls "lsd -al ."
-abbr lt "lsd --tree"
-abbr search "findme"
-abbr stow "stow --target $HOME"
-
-
-#Git
-abbr g  "git"
-abbr ga "git add"
-abbr ga. "git add ."
-abbr gs "git status"
-abbr gc "git commit -m"
-abbr gd "git diff"
-abbr gps "git push"
-abbr gpl "git pull"
-abbr gem "git commit --allow-empty -m 'argo sucks'"
-abbr gch "git checkout"
-abbr glog "git log --graph --pretty=\"%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen%cr %C(bold blue)%an%Creset\""
-abbr gundo "git push -f origin HEAD^:master"
-abbr grh "git reset --hard"
-abbr grmch "rm -r ~/.cache/git"
-
-#Dots
-abbr z. "nvim ~/.dots/stow/zsh/.zshrc"
-abbr omz "~/.oh-my-zsh"
-abbr dots "nvim ~/.dots/stow"
-abbr dotfiles "cd ~/.dots/stow"
-abbr f. "$EDITOR ~/.dots/stow/fish/.config/fish"
-abbr k. "$EDITOR ~/.dots/stow/kitty/.config/kitty/kitty.conf"
-abbr scripts "$EDITOR ~/.dots/stow/scripts/.config/scripts/"
-
-#Processes
-abbr nst "npm start"
-abbr nsv "npm run serve"
-abbr nsvr "npm run server"
-abbr nst "npm run start"
-abbr vs "code-insiders ./"
-abbr dw "dotnet watch run"
-abbr dr "dotnet run"
-abbr db "dotnet build"
-# abbr zoostart "~/kafka34/bin/zookeeper-server-start.sh ~/kafka34/config/zookeeper.properties"
-# abbr kafkastart "~/kafka34/bin/kafka-server-start.sh ~/kafka34/config/server.properties"
-
-
-###############
-# DMG ALIASES #
-###############
-
-abbr rocks "rm -rf bin/Debug/net6.0/rocksdb/ && rm -rf rocksdb"
-abbr dmg "cd ~/code/dmg"
-abbr leapi "cd ~/code/dmg/legacyprovideronboarding/api/dmg.legacy-provider-onboarding-app.api"
-abbr lestate "cd ~/code/dmg/legacyprovideronboarding/state/dmg.legacy-provider-onboarding-app.state"
-abbr meapi "cd ~/code/dmg/members/api/dmg.providerorg-member-edit-app.api"
-abbr mestate "cd ~/code/dmg/members/state/dmg.providerorg-member-edit-app.state"
-abbr csapi "cd ~/code/dmg/companysettings/api/dmg.providerorg-profile-edit-app.api"
-abbr csstate "cd ~/code/dmg/companysettings/state/dmg.providerorg-profile-edit-app.state"
-abbr opapi "cd ~/code/dmg/opportunities/api/dmg.opportunity-app.api"
-abbr opstate "cd ~/code/dmg/opportunities/state/dmg.opportunity-app.state"
-abbr neapi "cd ~/code/dmg/newprovideronboarding/api/dmg.new-provider-onboarding-app.api"
-abbr apapi "cd ~/code/dmg/approvaldashboard/api/dmg.approval-dashboard-app.api"
-abbr apstate "cd ~/code/dmg/approvaldashboard/state/dmg.approval-dashboard-app.state"
-abbr apmat "cd ~/code/dmg/approvaldashboard/materializer/dmg.approval-dashboard-app.materializer"
-abbr invite "cd ~/code/dmg/invitemember/dmg.providerorg-invite-member.api"
-abbr master "cd ~/code/dmg/provider/master/dmg.provider.master"
-abbr maapi "cd ~/code/dmg/provider/api/dmg.provider.api"
-abbr teapi "cd ~/code/dmg/technicianapp/api/dmg.technician-app.provider-api"
-abbr testate "cd ~/code/dmg/technicianapp/state/dmg.technician-app.state"
-abbr fastate "cd ~/code/dmg/fastaccept/state/dmg.fast-accept-app.state"
-abbr mystate "cd ~/code/dmg/myjobs/state/dmg.my-jobs-app.state"
-abbr myapi "cd ~/code/dmg/myjobs/api/dmg.my-jobs-app.api"
-abbr diapi "cd ~/code/dmg/dispatcherinvoiceronboarding/api/dmg.dispatcher-invoicer-onboarding-app.api"
-
-
-abbr dmgvpn "openvpn3 session-start --config ~/.private-dots/vpn/client.ovpn"
-
-#########################
-# PERSONAL PROJ ALIASES #
-#########################
-
-abbr ifaa "cd ~/code/ifaadfw/Server"
-
+source ~/.config/fish/privatealiases.fish
+source ~/.config/fish/aliases.fish
 
 #############
 # FUNCTIONS #
@@ -669,10 +559,6 @@ function personal
     cp -rf /personal/.* ~
 end
 
-# git
-# using plugin
-# omf install https://github.com/jhillyerd/plugin-git
-alias undopush "git push -f origin HEAD^:master"
 
 # reporting tools - install when not installed
 neofetch

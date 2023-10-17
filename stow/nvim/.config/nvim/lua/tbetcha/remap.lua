@@ -28,11 +28,12 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
 -- beginning and end of line easier...shift sucks
-map("n", "gl", "$")
-map("n", "gh", "^")
-
+map({"n","v"},"gl","$")
+map({"n", "v"},"gh","^")
+--
 -- clear highlight
-map("n", "qq", "<cmd>:nohl<cr>")
+-- map("n", "qq", "<cmd>:nohl<cr>")
+
 -- when yanked value and pasting over use leader p to delete pasted over value into void register so I don't lose it
 map("x", "<leader>p", [["_dP]])
 
