@@ -121,6 +121,12 @@ ${color1}[S]+r${alignr}${color2}rofi${color}
 ${color1}[F11]${alignr}${color2}screenshot${color}
 ${color1}[F12]${alignr}${color2}copyQ${color}
 ${color1}${hr}${color}
+${color1}[S]+d, h${alignr}${color2}dm-hub${color}
+${color1}[S]+d, b${alignr}${color2}dm-setbg${color}
+${color1}[S]+d, m${alignr}${color2}dm-man${color}
+${color1}[S]+d, o${alignr}${color2}dm-bookman${color}
+${color1}[S]+d, s${alignr}${color2}dm-websearch${color}
+${color1}${hr}${color}
 ${color1}[S]+[SHIFT]+r${alignr}${color2}restart qtile${color}
 ${color1}[S]+[SHIFT]+q${alignr}${color2}quit qtile${color}
 ]];

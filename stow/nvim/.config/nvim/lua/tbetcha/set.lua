@@ -23,6 +23,7 @@ opt.cmdheight = 1 -- height of cmd bar
 opt.showmatch = true -- show matching bracket when text indicator is over them
 opt.splitkeep = "screen"
 opt.showtabline = 2
+opt.foldmethod = "marker"
 
 -- use spaces instead of tabs, set 4 spaces on indent, smart indent
 opt.tabstop = 4
@@ -112,6 +113,4 @@ endfunction
 " Use map <buffer> to only map dd in the quickfix window. Requires +localmap
 autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
 ]])
-
-
 

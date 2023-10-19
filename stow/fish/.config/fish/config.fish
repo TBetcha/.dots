@@ -66,6 +66,7 @@ set -e fish_user_paths
 set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/Applications $fish_user_paths
 fish_add_path {$HOME}/usr/share/dotnet
 fish_add_path {$HOME}/Applications
+fish_add_path {$HOME}/opt
 
 # sets tools
 set -x EDITOR nvim

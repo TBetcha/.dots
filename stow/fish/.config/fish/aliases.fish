@@ -108,6 +108,7 @@ abbr fastate "cd ~/code/dmg/fastaccept/state/dmg.fast-accept-app.state"
 abbr mystate "cd ~/code/dmg/myjobs/state/dmg.my-jobs-app.state"
 abbr myapi "cd ~/code/dmg/myjobs/api/dmg.my-jobs-app.api"
 abbr diapi "cd ~/code/dmg/dispatcherinvoiceronboarding/api/dmg.dispatcher-invoicer-onboarding-app.api"
+abbr pdapi "cd ~/code/dmg/providerdashboard/api/dmg.provider-dashboard-app.api"
 
 
 abbr dmgvpn "openvpn3 session-start --config ~/.private-dots/vpn/client.ovpn"
