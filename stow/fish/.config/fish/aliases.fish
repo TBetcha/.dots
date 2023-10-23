@@ -31,7 +31,7 @@ abbr txns "tmux new -s"
 abbr txnds "tmux new -d -s" 
 
 #Programs
-abbr c "clear"
+abbr c "clean"
 abbr ld "lazydocker"
 abbr lg "lazygit"
 abbr cat "bat"
@@ -40,7 +40,7 @@ abbr ls "lsd -al ."
 abbr lt "lsd --tree"
 abbr search "findme"
 abbr stow "stow --target $HOME"
-abbr setpager "\setenv PAGER 'nvim-'"
+abbr setpager "\setenv PAGER 'nvim -'"
 
 
 #Git
