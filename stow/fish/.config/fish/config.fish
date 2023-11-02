@@ -231,8 +231,8 @@ alias pmss="sudo pacman -Ss --color auto"
 alias pmsyyu="sudo pacman -Syyu"
 alias pmsyu="sudo pacman -Syu"
 
-alias yyss = "yay -Ss"
-alias yys = "yay -S"
+alias yyss="yay -Ss"
+alias yys="yay -S"
 
 # This will generate a list of explicitly installed packages
 alias pmls="sudo pacman -Qqe"
