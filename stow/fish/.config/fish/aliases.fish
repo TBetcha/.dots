@@ -118,5 +118,4 @@ abbr dmgvpn "openvpn3 session-start --config ~/.private-dots/vpn/client.ovpn"
 # PERSONAL PROJ ALIASES #
 #########################
 
-abbr ifaa "cd ~/code/ifaadfw/Server"
 

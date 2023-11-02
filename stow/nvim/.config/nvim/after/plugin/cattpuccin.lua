@@ -43,7 +43,7 @@ require("catppuccin").setup({
 		mini = false,
 		telescope = {
 			enabled = true,
-			-- style = "nvchad"
+			style = "nvchad"
 		},
 		lsp_trouble = true,
 		lsp_saga = true,

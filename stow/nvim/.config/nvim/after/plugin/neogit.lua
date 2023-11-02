@@ -1,6 +1,10 @@
-local neogit = require("neogit")
+local neogit_status, neogit = pcall(require, "neogit")
+if not neogit_status then
+  return
+end
 
 neogit.setup {
+  vim.keymap.set("n", "<leader>ng", "<cmd>Neogit<CR>"),
   -- Hides the hints at the top of the status buffer
   disable_hint = false,
   -- Disables changing the buffer highlights based on where the cursor is.

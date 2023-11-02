@@ -1,10 +1,45 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export TOKYONIGHT:storm
 SETUVAR __fish_initialized:3400
+SETUVAR _fisher_axkirillov_2F_tokyonight_2D_fish_files:\x7e/\x2econfig/fish/functions/_tokyonight_set_background\x2efish\x1e\x7e/\x2econfig/fish/functions/theme_tokyonight\x2efish\x1e\x7e/\x2econfig/fish/functions/tokyonight_day\x2efish\x1e\x7e/\x2econfig/fish/functions/tokyonight_moon\x2efish\x1e\x7e/\x2econfig/fish/functions/tokyonight_night\x2efish\x1e\x7e/\x2econfig/fish/functions/tokyonight_storm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/tokyonight\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_patrickf1_2F_fzf_2E_fish_files:\x7e/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_changed_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_diff_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_processes\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e\x7e/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1epatrickf1/fzf\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1epatrickf1/fzf\x2efish\x1eaxkirillov/tokyonight\x2dfish\x1evitallium/tokyonight\x2dfish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
+SETUVAR _fisher_vitallium_2F_tokyonight_2D_fish_files:\x7e/\x2econfig/fish/themes/TokyoNight\x20Day\x2etheme\x1e\x7e/\x2econfig/fish/themes/TokyoNight\x20Moon\x2etheme\x1e\x7e/\x2econfig/fish/themes/TokyoNight\x20Night\x2etheme\x1e\x7e/\x2econfig/fish/themes/TokyoNight\x20Storm\x2etheme
+SETUVAR fish_color_autosuggestion:\x23969896
+SETUVAR fish_color_cancel:\x2dr
+SETUVAR fish_color_command:\x230782DE
+SETUVAR fish_color_comment:\x23f0c674
+SETUVAR fish_color_cwd:\x23008000
+SETUVAR fish_color_end:\x23b294bb
+SETUVAR fish_color_error:\x23fb4934
+SETUVAR fish_color_escape:\x23fe8019
+SETUVAR fish_color_host:\x2385AD82
+SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_keyword:bb9af7
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:\x23fe8019
+SETUVAR fish_color_option:\x1d
+SETUVAR fish_color_param:\x2381a2be
+SETUVAR fish_color_quote:\x23b8bb26
+SETUVAR fish_color_redirection:\x23d3869b
+SETUVAR fish_color_search_match:\x2d\x2dbackground\x3d\x2360AEFF
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1ebackground\x3dbrblack
+SETUVAR fish_color_user:brgreen
 SETUVAR fish_key_bindings:fish_vi_key_bindings
-SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_pager_color_background:\x1d
+SETUVAR fish_pager_color_completion:normal
+SETUVAR fish_pager_color_description:\x23B3A06D\x1eyellow
+SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_secondary_background:\x1d
+SETUVAR fish_pager_color_secondary_completion:\x1d
+SETUVAR fish_pager_color_secondary_description:\x1d
+SETUVAR fish_pager_color_secondary_prefix:\x1d
+SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3d364a82
+SETUVAR fish_pager_color_selected_completion:\x1d
+SETUVAR fish_pager_color_selected_description:\x1d
+SETUVAR fish_pager_color_selected_prefix:\x1d
 SETUVAR fish_user_paths:/home/tbetcha/\x2ebin\x1e/home/tbetcha/\x2elocal/bin\x1e/home/tbetcha/Applications
