@@ -70,7 +70,7 @@ require("tokyonight").setup({
 
 -- TODO: fix me
 vim.keymap.set("n", "<leader>rf", builtin.oldfiles, { desc = "[R]ecently opened [F]iles" })
-vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch [B]uffers" })
+vim.keymap.set("n", "<leader>bb", builtin.buffers, { desc = "[B][B]uffers" })
 vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
 vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })

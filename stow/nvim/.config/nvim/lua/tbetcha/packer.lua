@@ -107,7 +107,7 @@ return require("packer").startup(function(use)
   -- reload that other plugins rely on
   use({ "nvim-lua/plenary.nvim" })
   -- telescope
-  use({ "nvim-telescope/telescope.nvim", tag = "0.1.2" })
+  use({ "nvim-telescope/telescope.nvim", tag = "0.1.4" })
   -- fzf searching for telescope
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   -- zoxide telescope extension
@@ -142,7 +142,7 @@ return require("packer").startup(function(use)
   -- git icons
   use("lewis6991/gitsigns.nvim") -- OPTIONAL: for git status
   -- bar to show buffers
-  -- use("romgrk/barbar.nvim")
+  use("romgrk/barbar.nvim")
   -- --------------------------
   -- file explorer
   -- use("nvim-tree/nvim-tree.lua")
