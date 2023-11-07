@@ -6,6 +6,7 @@ require 'nvim-treesitter.configs'.setup {
         "typescript",
         "tsx",
         "yaml",
+        "regex",
         "html",
         "css",
         "markdown",
