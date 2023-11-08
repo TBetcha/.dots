@@ -23,10 +23,11 @@ $docker_context\
 [](fg:#a6e3a1 bg:#89b4fa)\
 $time\
 [ ](fg:#89B4FA)\
-"""
+\n$character"""
 
+scan_timeout = 10
 # Disable the blank line at the start of the prompt
-# add_newline = false
+add_newline = false
 
 # You can also replace your username with a neat symbol like  to save some space
 [username]

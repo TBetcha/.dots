@@ -134,92 +134,94 @@ end
 
 
 
-#####################
-### SYS FUNCTIONS ###
-#####################
-
-# Fish command history
-function history
-    builtin history --show-time='%F %T ' | sort
-end
-
-# Make a backup file
-function backup --argument filename
-    cp $filename $filename.bak
-end
-
-# recently installed packages
-function ripp --argument length -d "List the last n (100) packages installed"
-    if test -z $length
-        set length 100
-    end
-    expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n $length | nl
-end
-
-function gl
-    git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" $argv | fzf --ansi --no-sort --reverse --tiebreak=index --toggle-sort=\` --bind "ctrl-m:execute: echo '{}' | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always % | less -R'"
-end
-
-function ex --description "Extract bundled & compressed files"
-    if test -f "$argv[1]"
-        switch $argv[1]
-            case '*.tar.bz2'
-                tar xjf $argv[1]
-            case '*.tar.gz'
-                tar xzf $argv[1]
-            case '*.bz2'
-                bunzip2 $argv[1]
-            case '*.rar'
-                unrar $argv[1]
-            case '*.gz'
-                gunzip $argv[1]
-            case '*.tar'
-                tar xf $argv[1]
-            case '*.tbz2'
-                tar xjf $argv[1]
-            case '*.tgz'
-                tar xzf $argv[1]
-            case '*.zip'
-                unzip $argv[1]
-            case '*.Z'
-                uncompress $argv[1]
-            case '*.7z'
-                7z $argv[1]
-            case '*.deb'
-                ar $argv[1]
-            case '*.tar.xz'
-                tar xf $argv[1]
-            case '*.tar.zst'
-                tar xf $argv[1]
-            case '*'
-                echo "'$argv[1]' cannot be extracted via ex"
-        end
-   else
-       echo "'$argv[1]' is not a valid file"
-   end
-end
-
-function less
-    command less -R $argv
-end
-
-function cd
-    builtin cd $argv; and lsd -al .
-end
-
-# show the list of packages that need this package - depends mpv as example
-function function_depends
-    set search $argv[1]
-    sudo pacman -Sii $search | grep "Required" | sed -e "s/Required By     : //g" | sed -e "s/  /\n/g"
-end
-
-
+# #####################
+# ### SYS FUNCTIONS ###
+# #####################
+#
+# # Fish command history
+# function history
+#     builtin history --show-time='%F %T ' | sort
+# end
+#
+# # Make a backup file
+# function backup --argument filename
+#     cp $filename $filename.bak
+# end
+#
+# # recently installed packages
+# function ripp --argument length -d "List the last n (100) packages installed"
+#     if test -z $length
+#         set length 100
+#     end
+#     expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n $length | nl
+# end
+#
+# function glist
+#     git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" $argv | fzf --ansi --no-sort --reverse --tiebreak=index --toggle-sort=\` --bind "ctrl-m:execute: echo '{}' | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always % | less -R'"
+# end
+#
+# function ex --description "Extract bundled & compressed files"
+#     if test -f "$argv[1]"
+#         switch $argv[1]
+#             case '*.tar.bz2'
+#                 tar xjf $argv[1]
+#             case '*.tar.gz'
+#                 tar xzf $argv[1]
+#             case '*.bz2'
+#                 bunzip2 $argv[1]
+#             case '*.rar'
+#                 unrar $argv[1]
+#             case '*.gz'
+#                 gunzip $argv[1]
+#             case '*.tar'
+#                 tar xf $argv[1]
+#             case '*.tbz2'
+#                 tar xjf $argv[1]
+#             case '*.tgz'
+#                 tar xzf $argv[1]
+#             case '*.zip'
+#                 unzip $argv[1]
+#             case '*.Z'
+#                 uncompress $argv[1]
+#             case '*.7z'
+#                 7z $argv[1]
+#             case '*.deb'
+#                 ar $argv[1]
+#             case '*.tar.xz'
+#                 tar xf $argv[1]
+#             case '*.tar.zst'
+#                 tar xf $argv[1]
+#             case '*'
+#                 echo "'$argv[1]' cannot be extracted via ex"
+#         end
+#    else
+#        echo "'$argv[1]' is not a valid file"
+#    end
+# end
+#
+# function less
+#     command less -R $argv
+# end
+#
+# function cd
+#     builtin cd $argv; and lsd -al .
+# end
+#
+# # show the list of packages that need this package - depends mpv as example
+# function function_depends
+#     set search $argv[1]
+#     sudo pacman -Sii $search | grep "Required" | sed -e "s/Required By     : //g" | sed -e "s/  /\n/g"
+# end
+#
+#
 ####################
 ### ARCH ALIASES ###
 ####################
 
+##########
+# PACMAN #
+##########
 
-#pacman
 alias pacman="sudo pacman --color auto"
 alias pms='sudo pacman -S'
 alias pmr='sudo pacman -R'
@@ -230,10 +232,6 @@ alias pmsii='sudo pacman -Sii'
 alias pmss="sudo pacman -Ss --color auto"
 alias pmsyyu="sudo pacman -Syyu"
 alias pmsyu="sudo pacman -Syu"
-
-alias yyss="yay -Ss"
-alias yys="yay -S"
-
 # This will generate a list of explicitly installed packages
 alias pmls="sudo pacman -Qqe"
 #This will generate a list of explicitly installed packages without dependencies
@@ -243,14 +241,27 @@ alias pmlsaur="sudo pacman -Qqem"
 # add > list at the end to write to a file
 # install packages from list
 # pacman -S --needed - < my-list-of-packages.txt
-# paru as aur helper - updates everything
-alias pksyua="paru -Syu --noconfirm"
-alias upall="paru -Syu --noconfirm"
-alias upa="paru -Syu --noconfirm"
 
+
+#######
+# YAY #
+#######
+
+alias yyss="yay -Ss"
+alias yys="yay -S"
+#skip integrity check
+alias yayskip="yay -S --mflags --skipinteg"
+
+########
+# PARU #
+########
+
+# paru as aur helper - updates everything
+alias prsyu="paru -Syu --noconfirm"
 #skip integrity check
 alias paruskip="paru -S --mflags --skipinteg"
-alias yayskip="yay -S --mflags --skipinteg"
+
+#trizen
 alias trizenskip="trizen -S --skipinteg"
 
 alias depends='function_depends'
@@ -261,9 +272,6 @@ if type -q exa
     alias xll="exa -lag --icons --color=always --group-directories-first --octal-permissions"
 end
 
-alias udpate="sudo pacman -Syyu"
-alias upqll="paru -Syu --noconfirm"
-alias upal="paru -Syu --noconfirm"
 
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep="grep --color=auto"
@@ -516,18 +524,15 @@ alias xdw="ls /usr/share/wayland-sessions"
 # alias avs="arcolinux-vbox-share"
 # alias awa="arcolinux-welcome-app"
 
-#git
-# alias rmgitcache="rm -r ~/.cache/git"
-# alias grh="git reset --hard"
 
 #pamac
 alias pamac-unlock="sudo rm /var/tmp/pamac/dbs/db.lock"
 
 
 
-###########
-# ALIASES #
-###########
+##############
+# MY ALIASES #
+##############
 
 source ~/.config/fish/privatealiases.fish
 source ~/.config/fish/aliases.fish
@@ -563,6 +568,82 @@ function personal
     cp -rf /personal/ ~
     cp -rf /personal/.* ~
 end
+
+# Fish command history
+function history
+    builtin history --show-time='%F %T ' | sort
+end
+
+# Make a backup file
+function backup --argument filename
+    cp $filename $filename.bak
+end
+
+# recently installed packages
+function ripp --argument length -d "List the last n (100) packages installed"
+    if test -z $length
+        set length 100
+    end
+    expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n $length | nl
+end
+
+function glist
+    git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" $argv | fzf --ansi --no-sort --reverse --tiebreak=index --toggle-sort=\` --bind "ctrl-m:execute: echo '{}' | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always % | less -R'"
+end
+
+function ex --description "Extract bundled & compressed files"
+    if test -f "$argv[1]"
+        switch $argv[1]
+            case '*.tar.bz2'
+                tar xjf $argv[1]
+            case '*.tar.gz'
+                tar xzf $argv[1]
+            case '*.bz2'
+                bunzip2 $argv[1]
+            case '*.rar'
+                unrar $argv[1]
+            case '*.gz'
+                gunzip $argv[1]
+            case '*.tar'
+                tar xf $argv[1]
+            case '*.tbz2'
+                tar xjf $argv[1]
+            case '*.tgz'
+                tar xzf $argv[1]
+            case '*.zip'
+                unzip $argv[1]
+            case '*.Z'
+                uncompress $argv[1]
+            case '*.7z'
+                7z $argv[1]
+            case '*.deb'
+                ar $argv[1]
+            case '*.tar.xz'
+                tar xf $argv[1]
+            case '*.tar.zst'
+                tar xf $argv[1]
+            case '*'
+                echo "'$argv[1]' cannot be extracted via ex"
+        end
+   else
+       echo "'$argv[1]' is not a valid file"
+   end
+end
+
+function less
+    command less -R $argv
+end
+
+function cd
+    builtin cd $argv; and lsd -al .
+end
+
+# show the list of packages that need this package - depends mpv as example
+function function_depends
+    set search $argv[1]
+    sudo pacman -Sii $search | grep "Required" | sed -e "s/Required By     : //g" | sed -e "s/  /\n/g"
+end
+
 
 
 # reporting tools - install when not installed
