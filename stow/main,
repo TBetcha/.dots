@@ -1,0 +1,10 @@
+500 Can't connect to -:80 (Name or service not known)
+Content-Type: text/plain
+Client-Date: Wed, 08 Nov 2023 20:38:52 GMT
+Client-Warning: Internal response
+
+501 Protocol scheme 'https' is not supported (LWP::Protocol::https not installed)
+Content-Type: text/plain
+Client-Date: Wed, 08 Nov 2023 20:38:52 GMT
+Client-Warning: Internal response
+
