@@ -142,7 +142,7 @@ return require("packer").startup(function(use)
   -- git icons
   use("lewis6991/gitsigns.nvim") -- OPTIONAL: for git status
   -- bar to show buffers
-  use("romgrk/barbar.nvim")
+  -- use("romgrk/barbar.nvim")
   -- --------------------------
   -- file explorer
   -- use("nvim-tree/nvim-tree.lua")
@@ -186,13 +186,13 @@ return require("packer").startup(function(use)
     end,
   })
   use("chentoast/marks.nvim")
-  use({
-    "NeogitOrg/neogit",
-    requires = {
-      "nvim-lua/plenary.nvim", -- required
-      "nvim-telescope/telescope.nvim", -- optional
-      "sindrets/diffview.nvim", -- optional
-      "ibhagwan/fzf-lua", -- optional
-    },
-  })
+  -- use({
+  --   "NeogitOrg/neogit",
+  --   requires = {
+  --     "nvim-lua/plenary.nvim", -- required
+  --     "nvim-telescope/telescope.nvim", -- optional
+  --     "sindrets/diffview.nvim", -- optional
+  --     "ibhagwan/fzf-lua", -- optional
+  --   },
+  -- })
 end)

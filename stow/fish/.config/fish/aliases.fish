@@ -9,10 +9,10 @@ abbr .4 "cd ../../../.."
 abbr .5 "cd ../../../../.."
 
 
-
 #############################
 # OPERATIONAL ABBREVIATIONS #
 #############################
+
 
 #Editor
 alias vim "nvim"
@@ -61,13 +61,14 @@ abbr grh "git reset --hard"
 abbr grmch "rm -r ~/.cache/git"
 
 #Dots
-alias z. "nvim ~/.dots/stow/zsh/.zshrc"
+alias dots "cd ~/.dots/stow"
 abbr omz "~/.oh-my-zsh"
-alias dots "nvim ~/.dots/stow"
-alias dotfiles "cd ~/.dots/stow"
+alias s. "$EDITOR ~/.dots/stow/scripts/.config/scripts/"
+alias z. "$EDITOR ~/.dots/stow/zsh/.zshrc"
+alias d. "$EDITOR ~/.dots/stow"
+alias p. "$EDITOR cd ~/.config/fish/privatealiases.fish"
 alias f. "$EDITOR ~/.dots/stow/fish/.config/fish"
 alias k. "$EDITOR ~/.dots/stow/kitty/.config/kitty/kitty.conf"
-alias scripts "$EDITOR ~/.dots/stow/scripts/.config/scripts/"
 
 #Processes
 alias nst "npm start"
@@ -85,6 +86,7 @@ alias db "dotnet build"
 #####################
 # DMG ABBREVIATIONS #
 #####################
+
 
 alias rocks "rm -rf bin/Debug/net6.0/rocksdb/ && rm -rf rocksdb"
 alias dmg "cd ~/code/dmg"
@@ -114,6 +116,7 @@ alias pdst "cd ~/code/dmg/providerdashboard/state/dmg.provider-dashboard-app.sta
 
 
 alias dmgvpn "openvpn3 session-start --config ~/.private-dots/vpn/client.ovpn"
+
 
 #########################
 # PERSONAL PROJ ALIASES #
