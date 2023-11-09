@@ -66,7 +66,7 @@ abbr omz "~/.oh-my-zsh"
 alias s. "$EDITOR ~/.dots/stow/scripts/.config/scripts/"
 alias z. "$EDITOR ~/.dots/stow/zsh/.zshrc"
 alias d. "$EDITOR ~/.dots/stow"
-alias p. "$EDITOR cd ~/.config/fish/privatealiases.fish"
+alias p. "$EDITOR ~/.config/fish/privatealiases.fish"
 alias f. "$EDITOR ~/.dots/stow/fish/.config/fish"
 alias k. "$EDITOR ~/.dots/stow/kitty/.config/kitty/kitty.conf"
 
