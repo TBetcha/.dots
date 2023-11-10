@@ -1,0 +1,17 @@
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+	autocrlf = input
+	pager = diff-so-fancy
+[user]
+	name = Tbetcha
+	email = Troy.Boettger@gmail.com
+[pull]
+	ff = only
+[push]
+	autoSetupRemote = true
+[color]
+	ui = true
