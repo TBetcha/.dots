@@ -4,7 +4,7 @@ local map = vim.keymap.set
 vim.g.mapleader = " "
 
 -- only used when using netrw
-map("n", "<leader>e", ":Ex<CR>")
+-- map("n", "<leader>e", ":Ex<CR>")
 
 -- allow me to move blocks of text while highlighted - stops at bottom of file and then join does join
 map("v", "J", ":m '>+1<CR>gv=gv")

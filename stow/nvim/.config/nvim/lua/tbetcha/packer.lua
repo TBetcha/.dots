@@ -186,6 +186,9 @@ return require("packer").startup(function(use)
     end,
   })
   use("chentoast/marks.nvim")
+  use("kristijanhusak/vim-dadbod-ui")
+  use("tpope/vim-dadbod")
+  use('kristijanhusak/vim-dadbod-completion')
   -- use({
   --   "NeogitOrg/neogit",
   --   requires = {
