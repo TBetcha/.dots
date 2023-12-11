@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require("tbetcha")
 
 vim.loader.enable()
@@ -5,20 +8,8 @@ vim.loader.enable()
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.fsharp = {
   install_info = {
-    url = "~/code/tree-sitter-fsharp",
+    url = "~/tree-sitter-fsharp",
     files = {"src/scanner.cc", "src/parser.c" }
   },
   filetype = "fsharp",
 }
-
--- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
--- parser_config.fsharp = {
---   install_info = {
---     url = "https://github.com/Nsidorenco/tree-sitter-fsharp",
---     branch = "develop",
---     files = {"src/scanner.cc", "src/parser.c" },
---     generate_requires_npm = true,
---     requires_generate_from_grammar = true
---   },
---   filetype = "fsharp",
--- }

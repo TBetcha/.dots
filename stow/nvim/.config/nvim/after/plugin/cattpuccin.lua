@@ -1,4 +1,9 @@
-require("catppuccin").setup({
+local catppuccin_status, catppuccin = pcall(require, "catppuccin")
+if not catppuccin_status then
+  return
+end
+
+catppuccin.setup({
 	flavour = "mocha", -- latte, frappe, macchiato, mocha
 	background = { -- :h background
 		light = "latte",
@@ -43,7 +48,7 @@ require("catppuccin").setup({
 		mini = false,
 		telescope = {
 			enabled = true,
-			style = "nvchad"
+			-- style = "nvchad"
 		},
 		lsp_trouble = true,
 		lsp_saga = true,

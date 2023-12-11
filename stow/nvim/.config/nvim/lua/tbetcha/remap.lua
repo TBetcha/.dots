@@ -30,10 +30,9 @@ map("n", "N", "Nzzzv")
 -- beginning and end of line easier...shift sucks
 map({"n","v"},"gl","$")
 map({"n", "v"},"gh","^")
---
--- clear highlight
--- map("n", "qq", "<cmd>:nohl<cr>")
 
+-- clear highlight
+map("n", "qq", "<cmd>:nohl<cr>")
 -- when yanked value and pasting over use leader p to delete pasted over value into void register so I don't lose it
 map("x", "<leader>p", [["_dP]])
 
@@ -93,8 +92,8 @@ map("n", "<leader>q", "<cmd>:bd<CR>") -- close current buffer
 map("n", "<leader>Q", "<cmd>:bd!<CR>") -- close current buffer
 map("n", "<S-l>", "<cmd>:bn<CR>") --  go to next buffer
 map("n", "<S-h>", "<cmd>:bp<CR>") --  go to previous buffer
-map("n", "<leader>,", "<cmd>:bp<CR>") -- prev buffer
-map("n", "<leader>.", "<cmd>:bn<CR>") -- next buffer
+map('n', '<leader>,', '<cmd>:bp<CR>') --  go to previous buffer
+map('n', '<leader>.', '<cmd>:bn<CR>') --  go to next buffer
 map("n", "<leader>w", "<cmd>bp|bd #<CR>") -- close buffer; retain split
 
 -- map <Esc> to exit terminal-mode: >vim

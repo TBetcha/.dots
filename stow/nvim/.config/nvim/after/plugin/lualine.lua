@@ -42,8 +42,8 @@
 -- Author: shadmansaleh
 -- Credit: glepnir
 local lualine = require('lualine')
-local icons = require('tbetcha.icons')
 
+local icons = require("tbetcha.icons")
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
@@ -80,14 +80,13 @@ local config = {
     -- Disable sections and component separators
     component_separators = '',
     section_separators = '',
-    theme = 'tokyonight'
-    -- theme = {
-    --   -- We are going to use lualine_c an lualine_x as left and
-    --   -- right section. Both are highlighted by c theme .  So we
-    --   -- are just setting default looks o statusline
-    --   normal = { c = { fg = colors.fg, bg = colors.bg } },
-    --   inactive = { c = { fg = colors.fg, bg = colors.bg } },
-    -- },
+    theme = {
+      -- We are going to use lualine_c an lualine_x as left and
+      -- right section. Both are highlighted by c theme .  So we
+      -- are just setting default looks o statusline
+      normal = { c = { fg = colors.fg, bg = colors.bg } },
+      inactive = { c = { fg = colors.fg, bg = colors.bg } },
+    },
   },
   sections = {
     -- these are to remove the defaults
@@ -197,8 +196,24 @@ ins_left {
     return '%='
   end,
 }
-
 ins_left {
+  'branch',
+  icon = '',
+  color = { fg = colors.violet, gui = 'bold' },
+}
+
+ins_left{
+  'diff',
+  -- Is it me or the symbol for modified us really weird
+  symbols = { added = icons.git.added, modified = icons.git.changed, removed = icons.git.deleted },
+  diff_color = {
+    added = { fg = colors.green },
+    modified = { fg = colors.orange },
+    removed = { fg = colors.red },
+  },
+  cond = conditions.hide_in_width,
+}
+ins_right {
   -- Lsp server name .
   function()
     local msg = 'No Active Lsp'
@@ -233,25 +248,6 @@ ins_right {
   icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
   color = { fg = colors.green, gui = 'bold' },
 }
-
-ins_right {
-  'branch',
-  icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
-}
-
-ins_right {
-  'diff',
-  -- Is it me or the symbol for modified us really weird
-  symbols = { added = icons.git.added, modified = icons.git.changed, removed = icons.git.deleted },
-  diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
-  },
-  cond = conditions.hide_in_width,
-}
-
 ins_right {
   function()
     return '▊'
