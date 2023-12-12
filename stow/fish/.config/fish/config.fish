@@ -138,6 +138,10 @@ end
 ### ARCH ALIASES ###
 ####################
 
+abbr cx "chmod +x"
+alias c clear
+abbr !! sudo !!
+
 ##########
 # PACMAN #
 ##########
@@ -564,6 +568,14 @@ function function_depends
     sudo pacman -Sii $search | grep "Required" | sed -e "s/Required By     : //g" | sed -e "s/  /\n/g"
 end
 
+function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
+    if test "$argv" = !!
+        echo sudo $history[1]
+        eval command sudo $history[1]
+    else
+        command sudo $argv
+    end
+end
 
 
 # reporting tools - install when not installed
