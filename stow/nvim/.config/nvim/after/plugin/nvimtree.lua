@@ -48,6 +48,7 @@ local function my_on_attach(bufnr)
   -- vim.keymap.set('n', ']g', api.node.navigate.git.next)
   vim.keymap.set("n", "[d", api.node.navigate.diagnostics.prev)
   vim.keymap.set("n", "]d", api.node.navigate.diagnostics.next)
+  vim.keymap.set('n', '?',     api.tree.toggle_help, opts('Help'))
 end
 vim.cmd([[ highlight NvimTreeIndentMarker guifg=#9540d6 ]])
 -- pass to setup along with your other options

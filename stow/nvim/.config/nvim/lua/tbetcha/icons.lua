@@ -6,8 +6,8 @@ local M = {
     Info = " ",
   },
   git = {
-    added = " ",
-    changed = " ",
+    added = "",
+    changed = " ",
     deleted = " ",
   },
 }

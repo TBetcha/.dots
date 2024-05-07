@@ -160,7 +160,6 @@ telescope.setup({
   },
   pickers = {
     find_files = {
-      no_ignore = true,
       hidden = true,
       prompt_prefix = " 🔍 ",
       layout_strategy = "horizontal",
