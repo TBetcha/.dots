@@ -47,7 +47,7 @@ alias neofetch "pfetch"
 
 # ls aliases
 alias l "eza -la --icons --git --no-permissions --no-user --sort=modified --reverse"
-alias ls "eza -la --icons --git --sort=modified --reverse"
+abbr ls "eza -la --icons --git --sort=modified --reverse"
 alias lt "eza -lT --icons --git"
 alias lD "eza -lD --sort=modified --reverse"
 alias lf "eza -lF --color=always | grep -v /"
@@ -243,7 +243,7 @@ alias pamac-unlock="sudo rm /var/tmp/pamac/dbs/db.lock"
 #############
 
 function cd
-    builtin cd $argv; and ls
+    builtin cd $argv; and eza -la --icons --git --sort=modified --reverse .
 end
 
 # reload fish config

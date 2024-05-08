@@ -115,6 +115,12 @@ end
 #  echo
 #end
 
+if type -q exa
+    alias ls="exa"
+    alias xls="exa -a --icons --color=always --group-directories-first"
+    alias xll="exa -lag --icons --color=always --group-directories-first --octal-permissions"
+end
+
 if test tree >/dev/null
     function l1;  tree --dirsfirst -ChFL 1 $argv; end
     function l2;  tree --dirsfirst -ChFL 2 $argv; end
@@ -170,6 +176,7 @@ set fish_color_match --background=brblue
 set fish_color_normal normal
 set fish_color_operator "#fe8019"
 set fish_color_param "#81a2be"
+
 set fish_color_quote "#b8bb26"
 set fish_color_redirection "#d3869b"
 set fish_color_search_match bryellow background=brblack
@@ -185,7 +192,7 @@ set fish_pager_color_progress brwhite --background=cyan
 set fish_color_search_match --background="#60AEFF"
 
 
-fzf_configure_bindings --git_status=\cs --history=\cr --variables=\cv --processes=\cp --directory=\cf --git_log=\cg
+fzf_configure_bindings --git_status=\cn --history=\cr --variables=\cv --processes=\cp --directory=\cf --git_log=\cg
 zoxide init fish | source
 starship init fish | source
 
