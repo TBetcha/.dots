@@ -1,3 +1,11 @@
+#  _____ _     _          _    _ _
+# |  ___(_)___| |__      / \  | (_) __ _ ___  ___  ___
+# | |_  | / __| '_ \    / _ \ | | |/ _` / __|/ _ \/ __|
+# |  _| | \__ \ | | |  / ___ \| | | (_| \__ \  __/\__ \
+# |_|   |_|___/_| |_| /_/   \_\_|_|\__,_|___/\___||___/
+
+
+
 #########################
 # BASIC ABBREVIATIONS #
 #########################
@@ -44,6 +52,7 @@ abbr cat "bat"
 abbr search "findme"
 abbr stow "stow --target $HOME"
 alias neofetch "pfetch"
+thefuck --alias fck | source 
 
 # ls aliases
 alias l "eza -la --icons --git --no-permissions --no-user --sort=modified --reverse"
@@ -127,7 +136,8 @@ alias pdst "cd ~/code/dmg/providerdashboard/state/dmg.provider-dashboard-app.sta
 
 
 alias dmgvpn "openvpn3 session-start --config ~/.private-dots/vpn/client.ovpn"
-
+alias killdmgvpn "openvpn3 session-manage --disconnect --path"
+alias dmgvpnlist "openvpn3 sessions-list"
 
 ####################
 ### ARCH ALIASES ###
@@ -164,6 +174,8 @@ alias pmlsaur="sudo pacman -Qqem"
 
 alias yyss="yay -Ss"
 alias yys="yay -S"
+# remove package and dependencies
+alias yyrma="yay -Rns"
 #skip integrity check
 alias yayskip="yay -S --mflags --skipinteg"
 
