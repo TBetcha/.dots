@@ -15,7 +15,13 @@ abbr ... "cd ../.."
 abbr .... "cd ../../.."
 abbr ..... "cd ../../../.."
 abbr ...... "cd ../../../../.."
-abbr cx "chmod +x"
+
+alias .1 "cd ../"
+alias .2 "cd ../.."
+alias .3 "cd ../../.."
+alias .4 "cd ../../../.."
+alias .5 "cd ../../../../.."
+alias cx "chmod +x"
 alias c clear
 abbr !! sudo !!
 
