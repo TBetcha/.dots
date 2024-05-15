@@ -1,17 +1,26 @@
-[credential]
-	helper = store
+[user]
+	email = Troy.Boettger@gmail.com
+	name = Tbetcha
 [init]
 	defaultBranch = main
 [core]
 	editor = nvim
 	autocrlf = input
-	pager = diff-so-fancy
-[user]
-	name = Tbetcha
-	email = Troy.Boettger@gmail.com
+	pager = delta
+[delta]
+    navigate = true #use n and N to move between diff sections
+    side-by-side = true
+[merge]
+    conflictStyle = diff3
+[diff]
+    colormoved = default
+[interactive]
+    diffFilter = delta --color-only
 [pull]
 	ff = only
 [push]
 	autoSetupRemote = true
 [color]
 	ui = true
+
+
