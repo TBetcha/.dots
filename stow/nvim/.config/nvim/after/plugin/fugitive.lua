@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+vim.keymap.set("n", "<leader>gst", vim.cmd.Git)
 
 local Tbetcha_Fugitive = vim.api.nvim_create_augroup("Tbetcha_Fugitive", {})
 
@@ -15,13 +15,10 @@ autocmd("BufWinEnter", {
         local bufnr = vim.api.nvim_get_current_buf()
         local opts = {buffer = bufnr, remap = false}
         print("twas a great success", vim.bo.ft, bufnr, vim.inspect(opts))
-        vim.keymap.set("n", "<leader>ps", function()
-            vim.cmd [[ Git push ]]
-        end, opts)
+
+        vim.keymap.set("n", "<leader>gp", function() vim.cmd [[ Git push ]] end, opts)
 
         -- ff always
-        vim.keymap.set("n", "<leader>pl", function()
-            vim.cmd [[ Git pull --ff ]]
-        end, opts)
+        vim.keymap.set("n", "<leader>gl", function() vim.cmd [[ Git pull --ff ]] end, opts)
     end
 })

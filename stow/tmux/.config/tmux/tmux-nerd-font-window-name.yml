@@ -1,7 +1,7 @@
 # cSpell:disable
 config:
   fallback-icon: "󰬁"
-  show-name: "false"
+  show-name: true
 
 icons:
   apt: ""
@@ -14,6 +14,9 @@ icons:
   db: ""
   dnf: ""
   docker: ""
+  dotnet: ""
+  .net: ""
+  dotnet: ""
   dpkg: ""
   emacs: ""
   fdisk: ""
@@ -30,15 +33,12 @@ icons:
   lfcd: ""
   lvim: ""
   nala: ""
-  .net: ""
-  dotnet: ""
   node: ""
   nvim: ""
   pacman: ""
   parted: ""
   paru: ""
   psql: ""
-  pgsql: ""
   Python: ""
   ranger: ""
   ruby: ""

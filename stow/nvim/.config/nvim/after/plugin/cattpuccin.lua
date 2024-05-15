@@ -1,4 +1,9 @@
-require("catppuccin").setup({
+local catppuccin_status, catppuccin = pcall(require, "catppuccin")
+if not catppuccin_status then
+  return
+end
+
+catppuccin.setup({
 	flavour = "mocha", -- latte, frappe, macchiato, mocha
 	background = { -- :h background
 		light = "latte",
@@ -17,14 +22,14 @@ require("catppuccin").setup({
 	no_underline = false, -- Force no underline
 	styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
 		comments = { "italic" }, -- Change the style of comments
-		conditionals = { "italic" },
+		conditionals = { "bold" },
 		loops = {},
-		functions = {"bold", "italic"},
-		keywords = {},
+		functions = {"italic", "underline"},
+		keywords = {"bold", "italic"},
 		strings = {},
 		variables = {},
 		numbers = {},
-		booleans = {"italic"},
+		booleans = {"bold"},
 		properties = {},
 		types = {},
 		operators = {},
@@ -59,7 +64,7 @@ require("catppuccin").setup({
 	native_lsp = {
 		enabled = true,
 		virtual_text = {
-			errors = { "italic" },
+			errors = { "bold" },
 			hints = { "italic" },
 			warnings = { "italic" },
 			information = { "italic" },
@@ -77,5 +82,21 @@ require("catppuccin").setup({
 	},
 })
 
+-- function LineNumberColors()
+--     vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='gray', bold=false })
+--     vim.api.nvim_set_hl(0, 'LineNr', { fg='#ffe5b4', bold=true })
+--     vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='gray', bold=false })
+-- end
+
+-- function HarpoonColors()
+--     vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+--     vim.cmd('highlight! HarpoonActive guibg=NONE guifg=#eba0ac')
+--     vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
+--     vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
+--     vim.cmd('highlight! TabLineFill guibg=NONE guifg=NONE')
+-- end
 -- setup must be called before loading
 vim.cmd.colorscheme("catppuccin")
+-- ColorMyPencils("catppuccin")
+-- LineNumberColors()
+-- HarpoonColors()

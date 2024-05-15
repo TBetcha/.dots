@@ -14,14 +14,24 @@
         "on-click": "activate",
         "active-only": false,
         "all-outputs": true,
-        "format": "{}",
+        "format": "{icon}",
         "format-icons": {
-			"urgent": "",
-			"active": "",
-			"default": ""
+            "1": "PROD",
+            "2": "COMM",
+            "3": "WWW",
+            "4": "CMD",
+            "5": "DEV",
+            "6": "DEV2",
+            "7": "REF",
+            "8": "ENT",
+            "9": "OS",
+            "10": "OTH"
+//			"urgent": "",
+//			"active": "",
+//			"default": ""
         },
         "persistent-workspaces": {
-            "*": 9
+            "*":5
         }       
     },
 
@@ -33,7 +43,7 @@
         "on-click": "activate",
         "on-click-middle": "close",
         "ignore-list": [
-           "Alacritty"
+           "Alacritty", "kitty"
         ],
         "app_ids-mapping": {
             "firefoxdeveloperedition": "firefox-developer-edition"
@@ -66,15 +76,6 @@
     // Empty
     "custom/empty": {
         "format": ""
-    },
-
-    // Youtube Subscriber Count
-    "custom/youtube": {
-        "format": " {}",
-        "exec": "python ~/private/youtube.py",
-        "restart-interval": 600,
-        "on-click": "chromium https://studio.youtube.com",
-        "tooltip": false
     },
     
     // Cliphist

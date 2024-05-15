@@ -2,8 +2,9 @@ local opt = vim.opt
 
 -- netrw
 -- -- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+
 -- scrolling, columns, & other display stuff
 opt.termguicolors = true
 opt.nu = true
@@ -18,12 +19,13 @@ opt.splitright = true
 opt.splitbelow = true
 opt.equalalways = true
 opt.showmode = false -- pfft
-opt.showcmd = true -- show cmd we ran
-opt.cmdheight = 1 -- height of cmd bar
+opt.showcmd = true -- show cmd I ran
+opt.cmdheight = 2 -- height of cmd bar
 opt.showmatch = true -- show matching bracket when text indicator is over them
 opt.splitkeep = "screen"
 opt.showtabline = 2
 opt.foldmethod = "marker"
+opt.cursorline = true
 
 -- use spaces instead of tabs, set 4 spaces on indent, smart indent
 opt.tabstop = 4
@@ -31,7 +33,6 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
-
 -- Format options meaning
 -- - "a" -- I'll take the wheel, no formatting for you
 -- - "t" -- Seriously, Don't auto format my code.
@@ -42,21 +43,19 @@ opt.smartindent = true
 -- + "n" -- Indent past the formatlistpat, not underneath it.
 -- + "j" -- Auto-remove comments if possible.
 -- - "2"
-vim.cmd("autocmd BufEnter * set formatoptions-=atro")
-vim.cmd("autocmd BufEnter * setlocal formatoptions-=atro")
+-- vim.cmd("autocmd BufEnter * set formatoptions-=actro")
+-- vim.cmd("autocmd BufEnter * setlocal formatoptions-=actro")
 
--- opt.formatoptions = opt.formatoptions
--- 	- "a" -- I'll take the wheel, no formatting for you
--- 	- "t" -- Seriously, Don't auto format my code.
--- 	+ "c" -- In general, I like it when comments respect textwidth
--- 	+ "q" -- Allow formatting comments w/ gq
--- 	- "o" -- O and o, don't continue comments
--- 	- "r" -- don't continue when pressing enter.
--- 	+ "n" -- Indent past the formatlistpat, not underneath it.
--- 	+ "j" -- Auto-remove comments if possible.
--- 	- "2"
-
-
+opt.formatoptions = opt.formatoptions
+  - "a"
+  - "t"
+  + "c"
+  + "q"
+  - "o"
+  + "r"
+  + "n"
+  + "j"
+  - "2"
 
 -- undo stuff, buffers & files
 opt.swapfile = false
@@ -66,14 +65,14 @@ opt.undofile = true
 opt.hidden = true
 
 -- searching
-opt.hlsearch = false
+opt.hlsearch = true
 opt.incsearch = true
 opt.showmatch = true
 opt.ignorecase = true
 opt.smartcase = true
 
 -- faster completions
-opt.updatetime = 400
+opt.updatetime = 1000
 
 -- Show command options on the bottom when pressing tab
 opt.wildmenu = true
@@ -113,4 +112,6 @@ endfunction
 " Use map <buffer> to only map dd in the quickfix window. Requires +localmap
 autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
 ]])
+
+
 
