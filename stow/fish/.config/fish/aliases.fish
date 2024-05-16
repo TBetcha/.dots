@@ -85,12 +85,13 @@ abbr grmch "rm -r ~/.cache/git"
 
 #Dots
 abbr omz "~/.oh-my-zsh"
-alias s. "$EDITOR ~/.dots-arch/stow/scripts/.config/scripts/"
-alias z. "$EDITOR ~/.dots-arch/stow/zsh/.zshrc"
-alias d. "$EDITOR ~/.dots-arch/stow"
+alias s. "$EDITOR ~/.dots-arch/.dots/stow/scripts/.config/scripts/"
+alias z. "$EDITOR ~/.dots-arch/.dots/stow/zsh/.zshrc"
+alias d. "$EDITOR ~/.dots-arch/.dots/stow"
+alias dots "cd  ~/.dots-arch/.dots/stow"
 alias p. "$EDITOR ~/.config/fish/privatealiases.fish"
-alias f. "$EDITOR ~/.dots-arch/stow/fish/.config/fish"
-alias k. "$EDITOR ~/.dots-arch/stow/kitty/.config/kitty/kitty.conf"
+alias f. "$EDITOR ~/.dots-arch/.dots/stow/fish/.config/fish"
+alias k. "$EDITOR ~/.dots-arch/.dots/stow/kitty/.config/kitty/kitty.conf"
 
 #Processes
 alias nst "npm start"
