@@ -22,8 +22,8 @@ configuration {
     
 }
 
-/* ---- Load font ---- */
-@import "~/dotfiles/.settings/rofi-font.rasi"
+# /* ---- Load font ---- */
+# @import "~/dotfiles/.settings/rofi-font.rasi"
 
 /* ---- Load pywal colors (custom wal template) ---- */
 @import "~/.cache/wal/colors-rofi-pywal"
@@ -31,8 +31,8 @@ configuration {
 /* ---- Load wallpaper ---- */
 @import "~/.cache/current_wallpaper.rasi"
 
-/* ---- Load border width ---- */
-@import "~/dotfiles/.settings/rofi-border.rasi"
+# /* ---- Load border width ---- */
+# @import "~/dotfiles/.settings/rofi-border.rasi"
 
 /* ---- Window ---- */
 window {
@@ -43,7 +43,7 @@ window {
     padding:                      0px;
     margin:                       0px; 
     color:                        #FFFFFF;
-    border:                       @border-width;
+    border:                       3px;
     border-color:                 #FFFFFF;
     cursor:                       "default";
     transparency:                 "real";
@@ -165,7 +165,7 @@ element {
     cursor:                       pointer;
     background-color:             @background;
     border-radius:                10px;
-    border:                       @border-width;
+    border:                       3px;
     orientation:                  vertical;
 }
 
