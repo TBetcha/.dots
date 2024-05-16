@@ -103,9 +103,14 @@ alias dw "dotnet watch run"
 alias dr "dotnet run"
 alias db "dotnet build"
 alias drs "dotnet restore"
+
+
 # abbr zoostart "~/kafka34/bin/zookeeper-server-start.sh ~/kafka34/config/zookeeper.properties"
 # abbr kafkastart "~/kafka34/bin/kafka-server-start.sh ~/kafka34/config/server.properties"
 
+#Arch Setup
+alias conkme "conky -c "$HOME"/.config/conky/qtile/01/DoomOne.conkyrc"
+alias kc="killall conky"
 
 #####################
 # DMG ABBREVIATIONS #
@@ -140,6 +145,7 @@ alias myapi "cd ~/code/dmg/myjobs/api/dmg.my-jobs-app.api"
 alias diapi "cd ~/code/dmg/dispatcherinvoiceronboarding/api/dmg.dispatcher-invoicer-onboarding-app.api"
 alias pdapi "cd ~/code/dmg/providerdashboard/api/dmg.provider-dashboard-app.api"
 alias pdst "cd ~/code/dmg/providerdashboard/state/dmg.provider-dashboard-app.state"
+alias pbac "cd ~/code/dmg/providerbackend/dmg.provider.backend"
 
 
 alias dmgvpn "openvpn3 session-start --config ~/.private-dots/vpn/client.ovpn"
@@ -154,19 +160,30 @@ alias dmgvpnlist "openvpn3 sessions-list"
 # PACMAN #
 ##########
 
-alias pacman="sudo pacman --color auto"
+# install
 alias pms='sudo pacman -S'
+# remove
 alias pmr='sudo pacman -R'
+# force remove
+alias pmrf='sudo pacman -Rh'
+# skip dependency
+alias pmrskip='sudo pacman -Rd'
+# pacman remo
 alias pmrs='sudo pacman -Rs'
 alias pmrdd='sudo pacman -Rdd'
+# who owns this file
 alias pmqo='sudo pacman -Qo'
+# query about installable package and it  dependencies
 alias pmsii='sudo pacman -Sii'
+# search
 alias pmss="sudo pacman -Ss --color auto"
+# update and something else
 alias pmsyyu="sudo pacman -Syyu"
+# plain update
 alias pmsyu="sudo pacman -Syu"
 # This will generate a list of explicitly installed packages
 alias pmls="sudo pacman -Qqe"
-#This will generate a list of explicitly installed packages without dependencies
+# This will generate a list of explicitly installed packages without dependencies
 alias pmlswd="sudo pacman -Qqet"
 # list of AUR packages
 alias pmlsaur="sudo pacman -Qqem"
