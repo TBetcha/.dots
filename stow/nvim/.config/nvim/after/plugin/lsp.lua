@@ -137,6 +137,7 @@ mason_null_ls.setup({
     "fantomas", -- fsharp formatter
     "buf", -- protobuf formatter
     "sql_formatter", -- protobuf formatter
+    "black"
   },
   -- auto-install configured formatters & linters (with null-ls)
   automatic_installation = true,
