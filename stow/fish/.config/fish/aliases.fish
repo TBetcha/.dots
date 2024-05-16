@@ -251,6 +251,8 @@ alias rbt="reboot"
 #pamac
 alias pamac-unlock="sudo rm /var/tmp/pamac/dbs/db.lock"
 
+alias kc="killall conky"
+
 
 #########################
 # PERSONAL PROJ ALIASES #
