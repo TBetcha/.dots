@@ -26,6 +26,7 @@ run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
 run variety &
 run pamac-tray &
 run xfce4-power-manager &
+run dunst &
 numlockx on &
 blueberry-tray &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
