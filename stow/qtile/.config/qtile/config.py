@@ -241,7 +241,7 @@ group_labels = [
     "CHAT",
     "WWW",
     "DEV",
-    "DEV",
+    "DEV2",
     "REF",
     "ENT",
     "OS",
