@@ -117,7 +117,7 @@ alias kc="killall conky"
 #####################
 
 #NOTE: dadbo postgres conn string format
-# postgres://postgres:mypassword@localhost:5432/my-dev-db'
+#postgres://provider_org_user:{password}@{host}:5432/provider_org_db
 
 
 alias rocks "rm -rf bin/Debug/net6.0/rocksdb/ && rm -rf rocksdb"

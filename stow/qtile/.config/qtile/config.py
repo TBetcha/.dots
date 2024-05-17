@@ -364,7 +364,7 @@ layouts = [
 
 # Some settings that I use on almost every widget, which saves us
 # from having to type these out for each individual widget.
-widget_defaults = dict(font="Ubuntu Bold", fontsize=12, padding=0, background=colors[0])
+widget_defaults = dict(font="Ubuntu Bold", fontsize=13, padding=0, background=colors[0])
 
 extension_defaults = widget_defaults.copy()
 

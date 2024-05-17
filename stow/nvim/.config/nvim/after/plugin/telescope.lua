@@ -29,10 +29,10 @@ if not zoxide_status then
   return
 end
 
-local fb_status, fb = require("telescope").load_extension("file_browser")
-if not fb_status then
-  return
-end
+-- local fb_status, fb = require("telescope").load_extension("file_browser")
+-- if not fb_status then
+--   return
+-- end
 
 vim.keymap.set("n", "<leader>rf", builtin.oldfiles, {silent = true},{ desc = "[R]ecently opened [F]iles" })
 vim.keymap.set("n", "<leader>sb", builtin.buffers,{silent = true}, { desc = " [S]earch [B]uffers" })
@@ -163,30 +163,30 @@ telescope.setup({
       override_file_sorter = true,
     },
 
-    file_browser = {
-      prompt_title = "  File Browser",
-      prompt_prefix = "WYA >> ",
-      prompt_position = "top",
-      path_display = { "smart" },
-      previewer = false,
-      hijack_netrw = false,
-      cwd = "./",
-      layout_strategy = "horizontal",
-      layout_config = { preview_width = 0.65, width = 0.75 },
-    },
+    -- file_browser = {
+    --   prompt_title = "  File Browser",
+    --   prompt_prefix = "WYA >> ",
+    --   prompt_position = "top",
+    --   path_display = { "smart" },
+    --   previewer = false,
+    --   hijack_netrw = false,
+    --   cwd = "./",
+    --   layout_strategy = "horizontal",
+    --   layout_config = { preview_width = 0.65, width = 0.75 },
+    -- },
   },
 })
 
-local M = {}
+-- local M = {}
 
-function M.file_explorer()
-  fb({
-    prompt_title = "  File Browser",
-    path_display = { "smart" },
-    cwd = "~",
-    layout_strategy = "horizontal",
-    layout_config = { preview_width = 0.65, width = 0.75 },
-  })
-end
+-- function M.fgle_explorer()
+--   fb({
+--     prompt_title = "  File Browser",
+--     path_display = { "smart" },
+--     cwd = "~",
+--     layout_strategy = "horizontal",
+--     layout_config = { preview_width = 0.65, width = 0.75 },
+--   })
+-- end
 
-return M
+-- return M
