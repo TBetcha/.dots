@@ -27,6 +27,28 @@ require("lazy").setup({
     priority = 1000, -- Ensure it loads first
   },
   {
+    "bluz71/vim-nightfly-colors",
+    name = "nightfly",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    priority = 1000, -- Ensure it loads first
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
+
+    "marko-cerovac/material.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000, -- Ensure it loads first
@@ -193,10 +215,6 @@ require("lazy").setup({
   "kristijanhusak/vim-dadbod-ui",
   "tpope/vim-dadbod",
   "kristijanhusak/vim-dadbod-completion",
+  "kdheepak/lazygit.nvim",
 })
-require("lazy").setup({ { import = "tbetcha.plugins" } }, {
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-})
+require("lazy").setup(plugins, {})

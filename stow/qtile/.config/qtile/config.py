@@ -318,7 +318,7 @@ colors = colors.DoomOne
 # from having to type these out for each individual layout.
 layout_theme = {
     "border_width": 3,
-    "margin": 8,
+    "margin": 12,
     "border_focus": colors[7],
     "border_normal": colors[0],
 }
