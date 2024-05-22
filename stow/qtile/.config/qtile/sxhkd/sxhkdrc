@@ -261,6 +261,9 @@ Print
 ctrl + Print
      xfce4-screenshooter
 
+ctrl + Insert
+     xfce4-screenshooter
+
 #Gnome-Screenshot
 F11
      gnome-screenshot -i
