@@ -18,19 +18,23 @@ nm-applet &
 
 
 
-feh --bg-fill ~/Pictures/colorskull.jpg &
+##NOTE: using variety for now using variety for now
+# feh --bg-fill ~/Pictures/colorskull.jpg &
 run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
 
 
 #starting utility applications at boot time
 run variety &
+run parcellite &
 run pamac-tray &
 run xfce4-power-manager &
 run dunst &
 numlockx on &
 blueberry-tray &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/xfce4/notifyd/xfce4-notifyd &
+#
+## NOTE: temp try this see if we can get dunst working right
+# /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 #starting user applications at boot time
 run volumeicon &

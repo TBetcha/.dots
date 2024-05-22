@@ -96,8 +96,8 @@ map("n", "<leader>q", "<cmd>:bd<CR>") -- close current buffer
 map("n", "<leader>Q", "<cmd>:bd!<CR>") -- close current buffer
 map("n", "<S-l>", "<cmd>:bn<CR>") --  go to next buffer
 map("n", "<S-h>", "<cmd>:bp<CR>") --  go to previous buffer
-map('n', '<leader>,', '<cmd>:bp<CR>') --  go to previous buffer
-map('n', '<leader>.', '<cmd>:bn<CR>') --  go to next buffer
+-- map('n', '<leader>,', '<cmd>:bp<CR>') --  go to previous buffer
+-- map('n', '<leader>.', '<cmd>:bn<CR>') --  go to next buffer
 map("n", "<leader>w", "<cmd>bp|bd #<CR>") -- close buffer; retain split
 
 -- map <Esc> to exit terminal-mode: >vim

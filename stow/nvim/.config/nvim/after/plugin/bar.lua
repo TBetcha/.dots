@@ -8,8 +8,8 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Move to previous/next
--- map('n', '<leader>,', '<Cmd>BufferPrevious<CR>', opts)
--- map('n', '<leader>.', '<Cmd>BufferNext<CR>', opts)
+map('n', '<leader>,', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<leader>.', '<Cmd>BufferNext<CR>', opts)
 -- Re-order to previous/next
 -- map('n', '<leader><', '<Cmd>BufferMovePrevious<CR>', opts)
 -- map('n', '<leader>>', '<Cmd>BufferMoveNext<CR>', opts)
@@ -40,7 +40,7 @@ map('n', '<A-a>', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts)
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
 -- Sort automatically by...
-map('n', '<leader>sb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
+map('n', '<leader>ob', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
 map('n', '<leader>sbw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 -- Other:

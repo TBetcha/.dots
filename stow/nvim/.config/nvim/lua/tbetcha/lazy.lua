@@ -37,6 +37,10 @@ require("lazy").setup({
     priority = 1000, -- Ensure it loads first
   },
   {
+    "sainnhe/sonokai",
+    priority = 1000, -- Ensure it loads first
+  },
+  {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
@@ -176,7 +180,7 @@ require("lazy").setup({
   -- git icons
   "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
   -- bar to show buffers
-  -- "romgrk/barbar.nvim",
+  "romgrk/barbar.nvim",
   -- --------------------------
   -- file explorer
   "nvim-tree/nvim-tree.lua",
