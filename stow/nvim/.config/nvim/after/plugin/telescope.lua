@@ -29,52 +29,22 @@ if not zoxide_status then
   return
 end
 
-vim.keymap.set("n", "<leader>rf", builtin.oldfiles, { silent = true }, { desc = "[R]ecently opened [F]iles" })
-vim.keymap.set("n", "<leader>sb", builtin.buffers, { silent = true }, { desc = " [S]earch [B]uffers" })
-vim.keymap.set("n", "<leader>gf", builtin.git_files, { silent = true }, { desc = "Search [G]it [F]iles" })
-vim.keymap.set("n", "<leader>sf", builtin.find_files, { silent = true }, { desc = "[S]earch [F]iles" })
-vim.keymap.set("n", "<leader>sh", builtin.help_tags, { silent = true }, { desc = "[S]earch [H]elp" })
-vim.keymap.set("n", "<leader>sw", builtin.grep_string, { silent = true }, { desc = "[S]earch current [W]ord" })
-vim.keymap.set("n", "<leader>rg", builtin.live_grep, { silent = true }, { desc = "[R]ip [G]rep" })
-vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { silent = true }, { desc = "[S]earch [D]iagnostics" })
-vim.keymap.set(
-  "n",
-  "<leader>tgd",
-  builtin.lsp_definitions,
-  { silent = true },
-  { desc = "[T]elescope [G]o to [D]efinitions" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>tgi",
-  builtin.lsp_implementations,
-  { silent = true },
-  { desc = "[T]elescope [G]o to [I]mplementations" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>tout",
-  builtin.lsp_outgoing_calls,
-  { silent = true },
-  { desc = "[T]elescope LSP [O]utgoing calls" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>tin",
-  builtin.lsp_incoming_calls,
-  { silent = true },
-  { desc = "[[T]elescope LSP [I]ncoming calls" }
-)
-vim.keymap.set("n", "<leader>mk", builtin.marks, { silent = true }, { desc = "[M]ar[K]s" })
-vim.keymap.set("n", "<leader>tloc", builtin.loclist, { silent = true }, { desc = "[T]elescope [Loc]list" })
-vim.keymap.set("n", "<leader>tqf", builtin.quickfix, { silent = true }, { desc = "[T]elescope [Q]uick[F]ix" })
-vim.keymap.set(
-  "n",
-  "<leader>tqfh",
-  builtin.quickfixhistory,
-  { silent = true },
-  { desc = "[T]elescope [Q]uick[F]ix [H]istory" }
-)
+vim.keymap.set("n", "<leader>rf", builtin.oldfiles, { silent = true })
+vim.keymap.set("n", "<leader>sb", builtin.buffers, { silent = true })
+vim.keymap.set("n", "<leader>gf", builtin.git_files, { silent = true })
+vim.keymap.set("n", "<leader>sf", builtin.find_files, { silent = true })
+vim.keymap.set("n", "<leader>sh", builtin.help_tags, { silent = true })
+vim.keymap.set("n", "<leader>sw", builtin.grep_string, { silent = true })
+vim.keymap.set("n", "<leader>rg", builtin.live_grep, { silent = true })
+vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { silent = true })
+vim.keymap.set("n", "<leader>tgd", builtin.lsp_definitions, { silent = true })
+vim.keymap.set("n", "<leader>tgi", builtin.lsp_implementations, { silent = true })
+vim.keymap.set("n", "<leader>tout", builtin.lsp_outgoing_calls, { silent = true })
+vim.keymap.set("n", "<leader>tin", builtin.lsp_incoming_calls, { silent = true })
+vim.keymap.set("n", "<leader>mk", builtin.marks, { silent = true })
+vim.keymap.set("n", "<leader>tloc", builtin.loclist, { silent = true })
+vim.keymap.set("n", "<leader>tqf", builtin.quickfix, { silent = true })
+vim.keymap.set("n", "<leader>tqfh", builtin.quickfixhistory, { silent = true })
 vim.keymap.set("n", "<leader>tgc", "<cmd>Telescope git_commits<cr>", { silent = true }) -- list all git commits (use <cr> to checkout) ["tgc" for git commits]
 vim.keymap.set("n", "<leader>tgf", "<cmd>Telescope git_bcommits<cr>", { silent = true }) -- list git commits for current file/buffer (use <cr> to checkout) ["tgf" for git file commits]
 vim.keymap.set("n", "<leader>tgb", "<cmd>Telescope git_branches<cr>", { silent = true }) -- list git branches (use <cr> to checkout) ["tgb" for git branch]
@@ -91,12 +61,12 @@ vim.keymap.set(
   [[<Cmd>lua require'telescope.builtin'.keymaps({results_title='Key Maps Results'})<CR>]],
   { noremap = true, silent = true }
 )
-vim.keymap.set(
-  "n",
-  "<leader>fb",
-  [[<Cmd>lua require'telescope'.extensions.file_browser.file_browser()<CR>]],
-  { noremap = true, silent = true }
-)
+-- vim.keymap.set(
+--   "n",
+--   "<leader>fb",
+--   [[<Cmd>lua require'telescope'.extensions.file_browser.file_browser()<CR>]],
+--   { noremap = true, silent = true }
+-- )
 
 -- Clone the default Telescope configuration
 local vimgrep_arguments = {
