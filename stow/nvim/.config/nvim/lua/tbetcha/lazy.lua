@@ -142,8 +142,8 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
   },
-  --rust stuff
-  "simrat39/rust-tools.nvim",
+  -- --rust stuff
+  -- "simrat39/rust-tools.nvim",
   -- reload that other plugins rely on
   { "nvim-lua/plenary.nvim" },
   -- telescope
@@ -220,5 +220,7 @@ require("lazy").setup({
   "tpope/vim-dadbod",
   "kristijanhusak/vim-dadbod-completion",
   "kdheepak/lazygit.nvim",
+  "windwp/nvim-ts-autotag",
+  "MunifTanjim/prettier.nvim",
 })
 require("lazy").setup(plugins, {})
