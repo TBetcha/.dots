@@ -101,7 +101,7 @@ mason_lspconfig.setup({
     omnisharp = function()
       local pid = vim.fn.getpid()
       local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
-      require("lspconfig").omnisharp.setup({
+      lspconfig.omnisharp.setup({
         cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
         require("lspconfig")["omnisharp"].setup({
           capabilities = cmp_nvim_lsp.default_capabilities(),
@@ -137,7 +137,9 @@ mason_null_ls.setup({
     "fantomas", -- fsharp formatter
     "buf", -- protobuf formatter
     "sql_formatter", -- protobuf formatter
-    "black"
+    "black",
+    "csharpier",
+    "omnisharp"
   },
   -- auto-install configured formatters & linters (with null-ls)
   automatic_installation = true,
@@ -283,7 +285,7 @@ lsp.on_attach(function(client, bufnr)
   keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
   keymap.set("n", "<leader>of", function() vim.diagnostic.open_float() end, opts)
   keymap.set("n", "<leader>fm", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>")
-  keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<cr>", { buffer = true })
+  keymap.set("n", "<leader>trr", "<cmd>Telescope lsp_references<cr>", { buffer = true })
 
   -- typescript specific keymaps (e.g. rename file and update imports)
   if client.name == "tsserver" then

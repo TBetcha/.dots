@@ -41,7 +41,7 @@ vim.keymap.set("n", "<leader>tgd", builtin.lsp_definitions, { silent = true })
 vim.keymap.set("n", "<leader>tgi", builtin.lsp_implementations, { silent = true })
 vim.keymap.set("n", "<leader>tout", builtin.lsp_outgoing_calls, { silent = true })
 vim.keymap.set("n", "<leader>tin", builtin.lsp_incoming_calls, { silent = true })
-vim.keymap.set("n", "<leader>mk", builtin.marks, { silent = true })
+vim.keymap.set("n", "<leader>tmk", builtin.marks, { silent = true })
 vim.keymap.set("n", "<leader>tloc", builtin.loclist, { silent = true })
 vim.keymap.set("n", "<leader>tqf", builtin.quickfix, { silent = true })
 vim.keymap.set("n", "<leader>tqfh", builtin.quickfixhistory, { silent = true })
@@ -96,10 +96,10 @@ local center_list = require("telescope.themes").get_dropdown({
 
 telescope.setup({
   defaults = {
-    sorting_strategy = "ascending",
+    sorting_strategy = "descending",
     selection_caret = " ",
     layout_config = {
-      prompt_position = "top",
+      prompt_position = "bottom",
       horizontal = {
         width_padding = 0.04,
         height_padding = 0.1,
