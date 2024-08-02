@@ -17,7 +17,11 @@ vim.g.mapleader = " "
 require("lazy").setup({
   -- tmux nav
   "christoomey/vim-tmux-navigator",
-  -- theme
+
+  ---------------------------------------
+  --------------- THEMES  ---------------
+  ---------------------------------------
+
   {
     "EdenEast/nightfox.nvim",
     priority = 1000, -- Ensure it loads first
@@ -47,7 +51,6 @@ require("lazy").setup({
     opts = {},
   },
   {
-
     "marko-cerovac/material.nvim",
     lazy = false,
     priority = 1000,
@@ -125,77 +128,11 @@ require("lazy").setup({
 
   --END OF LSP STUFF
 
-  -- show diagnostics and location list
-  {
-    "folke/trouble.nvim",
-    opts = {
-      modes = {
-        mode = "diagnostics",
-        preview = {
-          type = "split",
-          relative = "win",
-          position = "right",
-          size = 0.3,
-        },
-      },
-    }, -- for default options, refer to the configuration section for custom setup.
-
-    cmd = "Trouble",
-    keys = {
-      {
-        "<leader>xx",
-        "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-      {
-        "<leader>xe",
-        "<cmd>Trouble diagnostics toggle filter.severity=vim.diagnostic.severity.ERROR<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-      {
-        "<leader>xE",
-        "<cmd>Trouble diagnostics toggle filter.buf=0 filter.severity=vim.diagnostic.severity.ERROR<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-      {
-        "<leader>xX",
-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "Buffer Diagnostics (Trouble)",
-      },
-      {
-        "<leader>xs",
-        "<cmd>Trouble symbols toggle focus=false type=split results.win.relative=win results.win.position=right<cr>",
-        desc = "Symbols (Trouble)",
-      },
-      {
-        "<leader>xr",
-        "<cmd>Trouble lsp_references toggle focus=false type=split results.win.relative=win results.win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
-      },
-      {
-        "<leader>xl",
-        "<cmd>Trouble loclist toggle<cr>",
-        desc = "Location List (Trouble)",
-      },
-      {
-        "<leader>xq",
-        "<cmd>Trouble qflist toggle<cr>",
-        desc = "Quickfix List (Trouble)",
-      },
-      {
-        "<leader>xt",
-        "<cmd>TodoTrouble toggle focus=false type=split results.win.relative=win results.win.position=right<cr>",
-        desc = "List of todos",
-      },
-    },
-  },
   -- line at bottom of nvim window
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
   },
-  -- --rust stuff
-  -- "simrat39/rust-tools.nvim",
   -- reload that other plugins rely on
   { "nvim-lua/plenary.nvim" },
   -- telescope
@@ -236,9 +173,6 @@ require("lazy").setup({
   -- --------------------------
   -- file explorer
   "nvim-tree/nvim-tree.lua",
-  -- debugger
-  -- { "mfussenegger/nvim-dap" },
-  -- -------------------------------
   -- auto close parens and brackets
   "windwp/nvim-autopairs",
   -- maximize window and restore to orig size
@@ -282,6 +216,19 @@ require("lazy").setup({
     end,
   },
   {
+    "smjonas/inc-rename.nvim",
+    config = function()
+      require("inc_rename").setup(require("noice").setup({
+        presets = { inc_rename = true },
+      }))
+    end,
+    vim.keymap.set("n", "<leader>ra", ":IncRename "),
+  },
+  ---------------------------------------
+  --------------- EASE OF USE  ----------
+  ---------------------------------------
+
+  {
     "abecodes/tabout.nvim",
     lazy = false,
     config = function()
@@ -315,10 +262,11 @@ require("lazy").setup({
     event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
     priority = 1000,
   },
-  {
-    "stevearc/dressing.nvim",
-    opts = {},
-  },
+
+  ---------------------------------------
+  --------------- DEV FEATURES ----------
+  ---------------------------------------
+
   {
     "mfussenegger/nvim-dap",
     enabled = vim.fn.has("win32") == 0,
@@ -398,6 +346,102 @@ require("lazy").setup({
         default_detail = 1,
       },
     },
+  },
+
+  -------------------------------------
+  --------------- UI RELATED ----------
+  -------------------------------------
+  -- show diagnostics and location list
+  {
+    "folke/trouble.nvim",
+    opts = {
+      modes = {
+        mode = "diagnostics",
+        preview = {
+          type = "split",
+          relative = "win",
+          position = "right",
+          size = 0.3,
+        },
+      },
+    }, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xe",
+        "<cmd>Trouble diagnostics toggle filter.severity=vim.diagnostic.severity.ERROR<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xE",
+        "<cmd>Trouble diagnostics toggle filter.buf=0 filter.severity=vim.diagnostic.severity.ERROR<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xs",
+        "<cmd>Trouble symbols toggle focus=false type=split results.win.relative=win results.win.position=right<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>xr",
+        "<cmd>Trouble lsp_references toggle focus=false type=split results.win.relative=win results.win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>xl",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>xq",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+      {
+        "<leader>xt",
+        "<cmd>TodoTrouble toggle focus=false type=split results.win.relative=win results.win.position=right<cr>",
+        desc = "List of todos",
+      },
+    },
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts)
+      require("lsp_signature").setup(
+        opts,
+        vim.api.nvim_create_autocmd("LspAttach", {
+          callback = function(args)
+            local bufnr = args.buf
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            if vim.tbl_contains({ "null-ls" }, client.name) then -- blacklist lsp
+              return
+            end
+            require("lsp_signature").on_attach({
+              -- ... setup options here ...
+            }, bufnr)
+          end,
+        })
+      )
+      vim.keymap.set({ "n" }, "<C-x>", function()
+        require("lsp_signature").toggle_float_win()
+      end, { silent = true, noremap = true, desc = "toggle signature" })
+
+      vim.keymap.set({ "n" }, "<Leader>k", function()
+        require("lsp_signature").toggle_float_win()
+      end, { silent = true, noremap = true, desc = "toggle signature" })
+    end,
   },
 })
 require("lazy").setup(plugins, {})
