@@ -281,5 +281,123 @@ require("lazy").setup({
       require("octo").setup()
     end,
   },
+  {
+    "abecodes/tabout.nvim",
+    lazy = false,
+    config = function()
+      require("tabout").setup({
+        tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
+        backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
+        act_as_tab = true, -- shift content if tab out is not possible
+        act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+        default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+        default_shift_tab = "<C-d>", -- reverse shift default action,
+        enable_backwards = true, -- well ...
+        completion = false, -- if the tabkey is used in a completion pum
+        tabouts = {
+          { open = "'", close = "'" },
+          { open = '"', close = '"' },
+          { open = "`", close = "`" },
+          { open = "(", close = ")" },
+          { open = "[", close = "]" },
+          { open = "{", close = "}" },
+        },
+        ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+        exclude = {}, -- tabout will ignore these filetypes
+      })
+    end,
+    dependencies = { -- These are optional
+      "nvim-treesitter/nvim-treesitter",
+      "L3MON4D3/LuaSnip",
+      "hrsh7th/nvim-cmp",
+    },
+    opt = true, -- Set this to true if the plugin is optional
+    event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
+    priority = 1000,
+  },
+  {
+    "stevearc/dressing.nvim",
+    opts = {},
+  },
+  {
+    "mfussenegger/nvim-dap",
+    enabled = vim.fn.has("win32") == 0,
+    event = "User BaseFile",
+    config = function()
+      local dap = require("dap")
+      -- C#
+      dap.adapters.coreclr = {
+        type = "executable",
+        command = vim.fn.stdpath("data") .. "/mason/bin/netcoredbg",
+        args = { "--interpreter=vscode" },
+      }
+      dap.configurations.cs = {
+        {
+          type = "coreclr",
+          name = "launch - netcoredbg",
+          request = "launch",
+          program = function() -- Ask the user what executable wants to debug
+            return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug", "file")
+          end,
+        },
+      }
+
+      -- F#
+      dap.configurations.fsharp = dap.configurations.cs
+    end, -- of dap config
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "rcarriga/cmp-dap",
+      "jay-babu/mason-nvim-dap.nvim",
+    },
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    opts = { floating = { border = "rounded" } },
+    config = function(_, opts)
+      local dap, dapui = require("dap"), require("dapui")
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+      dapui.setup(opts)
+    end,
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+  },
+  {
+    "rcarriga/cmp-dap",
+    dependencies = { "nvim-cmp" },
+    config = function()
+      require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+        sources = {
+          { name = "dap" },
+        },
+      })
+    end,
+  },
+  { -- This plugin
+    "Zeioth/compiler.nvim",
+    cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+    dependencies = { "stevearc/overseer.nvim", "nvim-telescope/telescope.nvim" },
+    opts = {},
+  },
+  { -- The task runner we use
+    "stevearc/overseer.nvim",
+    commit = "6271cab7ccc4ca840faa93f54440ffae3a3918bd",
+    cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+    opts = {
+      task_list = {
+        direction = "bottom",
+        min_height = 25,
+        max_height = 25,
+        default_detail = 1,
+      },
+    },
+  },
 })
 require("lazy").setup(plugins, {})

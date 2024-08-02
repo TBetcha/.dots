@@ -297,6 +297,7 @@ end)
 
 lsp.setup()
 
+
 -- -- used to enable autocompletion (assign to every lsp server config)
 ---
 -- -- Create the configuration for metals
@@ -320,3 +321,4 @@ lsp.setup()
 vim.diagnostic.config({
   virtual_text = true,
 })
+
