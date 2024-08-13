@@ -311,7 +311,7 @@ for i in groups:
 # It is best not manually change the colorscheme; instead run 'dtos-colorscheme'
 # which is set to 'MOD + p c'
 
-colors = colors.DoomOne
+colors = colors.Dracula
 
 ### LAYOUTS ###
 # Some settings that I use on almost every layout, which saves us

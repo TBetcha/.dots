@@ -110,6 +110,7 @@ alias drs "dotnet restore"
 
 #Arch Setup
 alias conkme "conky -c "$HOME"/.config/conky/qtile/01/DoomOne.conkyrc"
+alias conkmedrac "conky -c "$HOME"/.config/conky/qtile/01/Dracula.conkyrc"
 alias kc="killall conky"
 
 #####################
