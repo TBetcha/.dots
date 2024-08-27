@@ -1,5 +1,6 @@
-local nightfly_status, nightfly = pcall(require, "nightfly")
-if not nightfly_status then
+
+local moonfly_status, moonfly = pcall(require, "moonfly")
+if not moonfly_status then
     return
 end
 
@@ -19,8 +20,8 @@ cmp.setup({
   }
 })
 -- Lua initialization file
-vim.g.nightflyTransparent = true
+vim.g.moonflyTransparent = true
 -- Lua initialization file
-vim.g.nightflyItalics = true
+vim.g.moonflyItalics = true
 -- Lua initialization file
 vim.opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┫', vertright = '┣', verthoriz = '╋', }

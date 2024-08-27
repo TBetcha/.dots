@@ -34,10 +34,10 @@ abbr !! sudo !!
 #Editor
 alias vim "nvim"
 alias vi "nvim"
-alias n "nvim"
 alias v "nvim"
 alias . "nvim ."
 alias vimdiff 'nvim -d'
+abbr n "env TERM=wezterm nvim"
 
 
 #Tmux
@@ -92,6 +92,8 @@ alias dots "cd  ~/.dots-arch/.dots/stow"
 alias p. "$EDITOR ~/.config/fish/privatealiases.fish"
 alias f. "$EDITOR ~/.dots-arch/.dots/stow/fish/.config/fish"
 alias k. "$EDITOR ~/.dots-arch/.dots/stow/kitty/.config/kitty/kitty.conf"
+alias w. "$EDITOR ~/.dots-arch/.dots/stow/wezterm/.config/wezterm/"
+alias wf. "$EDITOR ~/.dots-arch/.dots/stow/wezterm/.config/wezterm/config/fonts.lua"
 
 #Processes
 alias nst "npm start"
