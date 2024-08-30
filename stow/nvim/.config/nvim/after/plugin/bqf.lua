@@ -58,8 +58,8 @@ bqf.setup({
   },
 })
 
-vim.keymap.set("n", "<leader>bq", "<Cmd>Bqf toggle<CR>")
-vim.keymap.set("n", "<leader>qo ", "<Cmd>Bqf Open<CR>")
-vim.keymap.set("n", "<leader>qc ", "<Cmd>Bqf Close<CR>")
-vim.keymap.set("n", "<leader>qf ", "<Cmd>Bqf Focus<CR>")
-vim.keymap.set("n", "<leader>qa ", "<Cmd>BqfToggleAuto<CR>")
+vim.keymap.set("n", "<leader>bqt", "<Cmd>Bqf toggle<CR>")
+vim.keymap.set("n", "<leader>bqo ", "<Cmd>Bqf Open<CR>")
+vim.keymap.set("n", "<leader>bqc ", "<Cmd>Bqf Close<CR>")
+vim.keymap.set("n", "<leader>bqf ", "<Cmd>Bqf Focus<CR>")
+vim.keymap.set("n", "<leader>bqa ", "<Cmd>BqfToggleAuto<CR>")
