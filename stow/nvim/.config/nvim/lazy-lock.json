@@ -14,8 +14,6 @@
   "cmp-tabnine": { "branch": "main", "commit": "d52aae40ee86b62960c31a003352ddfc9e31c8d2" },
   "cmp-treesitter": { "branch": "master", "commit": "958fcfa0d8ce46d215e19cc3992c542f576c4123" },
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
-  "cobalt2.nvim": { "branch": "master", "commit": "bcc77e58598d89867187ce396156eff602b449b8" },
-  "colorbuddy.nvim": { "branch": "master", "commit": "cdb5b0654d3cafe61d2a845e15b2b4b0e78e752a" },
   "compiler.nvim": { "branch": "main", "commit": "892c1aac059b7df16dc636eea9e34be53f53ff96" },
   "copilot-cmp": { "branch": "master", "commit": "b6e5286b3d74b04256d0a7e3bd2908eabec34b44" },
   "copilot.lua": { "branch": "master", "commit": "86537b286f18783f8b67bccd78a4ef4345679625" },

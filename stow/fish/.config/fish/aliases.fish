@@ -151,7 +151,7 @@ alias pdst "cd ~/code/dmg/providerdashboard/state/dmg.provider-dashboard-app.sta
 alias pbac "cd ~/code/dmg/providerbackend/dmg.provider.backend"
 
 
-alias dmgvpn "openvpn3 session-start --config ~/.private-dots/vpn/client.ovpn"
+alias dmgvpn "openvpn3 session-start --config client.ovpn"
 alias killdmgvpn "openvpn3 session-manage --disconnect --path"
 alias dmgvpnlist "openvpn3 sessions-list"
 
@@ -180,9 +180,14 @@ alias pmqo='sudo pacman -Qo'
 alias pmsii='sudo pacman -Sii'
 # search
 alias pmss="sudo pacman -Ss --color auto"
-# update and something else
-alias pmsyyu="sudo pacman -Syyu"
+# NOTE:
+# update and force mirror refresh can be problematic
+# crashed my system last time
+# alias pmsyyu="sudo pacman -Syyu"
 # plain update
+
+# update, force mirror refresh, and downgrade pkgs from forced mirror change
+alias pmsyyuu="sudo pacman -Syyuu"
 alias pmsyu="sudo pacman -Syu"
 # This will generate a list of explicitly installed packages
 alias pmls="sudo pacman -Qqe"
